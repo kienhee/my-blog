@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#080510"/>
+      <stop offset="100%" style="stop-color:#0c0814"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+
+  <!-- Top label -->
+  <text x="800" y="80" font-family="Arial, sans-serif" font-size="10" fill="#3f3f46" text-anchor="middle" letter-spacing="5">AI-POWERED DEVELOPER TOOL</text>
+
+  <!-- Main title -->
+  <text x="800" y="170" font-family="Arial Black, sans-serif" font-size="72" font-weight="900" fill="#f5f5f5" text-anchor="middle" letter-spacing="-3">aicommit</text>
+  <text x="800" y="215" font-family="Arial, sans-serif" font-size="15" fill="#52525b" text-anchor="middle">Uses GPT-4 to generate meaningful commit messages from your staged diff</text>
+
+  <!-- Terminal -->
+  <rect x="160" y="260" width="1280" height="640" rx="12" fill="#0a0a0f" stroke="#1a1a28" stroke-width="1"/>
+  <rect x="160" y="260" width="1280" height="48" rx="12" fill="#13131f"/>
+  <rect x="160" y="292" width="1280" height="16" fill="#13131f"/>
+  <circle cx="196" cy="284" r="7" fill="#ff5f57"/>
+  <circle cx="220" cy="284" r="7" fill="#febc2e"/>
+  <circle cx="244" cy="284" r="7" fill="#28c840"/>
+  <text x="800" y="288" font-family="monospace, Courier New" font-size="12" fill="#3f3f56" text-anchor="middle">bash  ~/projects/my-saas</text>
+
+  <!-- Git status -->
+  <text x="200" y="342" font-family="monospace, Courier New" font-size="14" fill="#7c7c9e">~/my-saas</text>
+  <text x="340" y="342" font-family="monospace, Courier New" font-size="14" fill="#a78bfa"> main</text>
+  <text x="400" y="342" font-family="monospace, Courier New" font-size="14" fill="#fbbf24"> 3</text>
+  <text x="440" y="342" font-family="monospace, Courier New" font-size="14" fill="#6e7681">$</text>
+  <text x="460" y="342" font-family="monospace, Courier New" font-size="14" fill="#e6edf3"> git diff --staged</text>
+
+  <!-- Diff output -->
+  <rect x="200" y="358" width="1200" height="160" rx="6" fill="#0c0c16"/>
+  <text x="220" y="382" font-family="monospace, Courier New" font-size="12" fill="#6e7681">diff --git a/lib/auth.ts b/lib/auth.ts</text>
+  <text x="220" y="400" font-family="monospace, Courier New" font-size="12" fill="#6e7681">@@ -24,6 +24,18 @@ export async function signIn(</text>
+  <text x="220" y="418" font-family="monospace, Courier New" font-size="12" fill="#f87171">- const user = await db.user.findFirst({ where: { email } });</text>
+  <text x="220" y="434" font-family="monospace, Courier New" font-size="12" fill="#4ade80">+ const user = await db.user.findFirst({</text>
+  <text x="220" y="450" font-family="monospace, Courier New" font-size="12" fill="#4ade80">+   where: { email },</text>
+  <text x="220" y="466" font-family="monospace, Courier New" font-size="12" fill="#4ade80">+   select: { id: true, email: true, role: true },</text>
+  <text x="220" y="482" font-family="monospace, Courier New" font-size="12" fill="#4ade80">+ });</text>
+  <text x="220" y="498" font-family="monospace, Courier New" font-size="12" fill="#4ade80">+ if (!user) throw new AuthError("USER_NOT_FOUND");</text>
+
+  <!-- Command -->
+  <text x="200" y="546" font-family="monospace, Courier New" font-size="14" fill="#7c7c9e">~/my-saas</text>
+  <text x="340" y="546" font-family="monospace, Courier New" font-size="14" fill="#a78bfa"> main</text>
+  <text x="400" y="546" font-family="monospace, Courier New" font-size="14" fill="#fbbf24"> 3</text>
+  <text x="440" y="546" font-family="monospace, Courier New" font-size="14" fill="#6e7681">$</text>
+  <text x="460" y="546" font-family="monospace, Courier New" font-size="14" fill="#e6edf3"> aicommit</text>
+
+  <!-- Loading / AI thinking -->
+  <text x="200" y="586" font-family="monospace, Courier New" font-size="13" fill="#a78bfa">8</text>
+  <text x="224" y="586" font-family="monospace, Courier New" font-size="13" fill="#6e7681"> Analyzing diff with GPT-4o...</text>
+
+  <!-- AI generated message -->
+  <rect x="200" y="604" width="1200" height="88" rx="8" fill="#13101e" stroke="#3d2060" stroke-width="1"/>
+  <text x="220" y="628" font-family="monospace, Courier New" font-size="11" fill="#a78bfa" letter-spacing="2">AI SUGGESTION</text>
+  <text x="220" y="654" font-family="monospace, Courier New" font-size="14" fill="#e6edf3" font-weight="bold">feat(auth): optimize sign-in query with selective field projection</text>
+  <text x="220" y="678" font-family="monospace, Courier New" font-size="12" fill="#4a4a6a">Reduces data transfer by selecting only id, email, and role fields.</text>
+
+  <!-- Confirm prompt -->
+  <text x="200" y="726" font-family="monospace, Courier New" font-size="14" fill="#6e7681">Use this commit message? </text>
+  <text x="596" y="726" font-family="monospace, Courier New" font-size="14" fill="#4ade80">[Y]es</text>
+  <text x="660" y="726" font-family="monospace, Courier New" font-size="14" fill="#6e7681"> / </text>
+  <text x="680" y="726" font-family="monospace, Courier New" font-size="14" fill="#f87171">[N]o</text>
+  <text x="740" y="726" font-family="monospace, Courier New" font-size="14" fill="#6e7681"> / </text>
+  <text x="760" y="726" font-family="monospace, Courier New" font-size="14" fill="#fbbf24">[E]dit</text>
+  <text x="840" y="726" font-family="monospace, Courier New" font-size="14" fill="#e6edf3"> y</text>
+
+  <!-- Success output -->
+  <text x="200" y="770" font-family="monospace, Courier New" font-size="14" fill="#4ade80"> Committed: feat(auth): optimize sign-in query with selective field projection</text>
+  <text x="200" y="796" font-family="monospace, Courier New" font-size="13" fill="#3f3f46">  [main 2a8f3d1] 3 files changed, 18 insertions(+), 4 deletions(-)</text>
+  <rect x="200" y="810" width="1200" height="1" fill="#1a1a28"/>
+
+  <!-- New prompt -->
+  <text x="200" y="840" font-family="monospace, Courier New" font-size="14" fill="#7c7c9e">~/my-saas</text>
+  <text x="340" y="840" font-family="monospace, Courier New" font-size="14" fill="#a78bfa"> main</text>
+  <text x="440" y="840" font-family="monospace, Courier New" font-size="14" fill="#6e7681">$</text>
+  <rect x="460" y="826" width="10" height="20" fill="#e6edf3" opacity="0.6"/>
+
+  <!-- Bottom label -->
+  <text x="800" y="960" font-family="monospace, Courier New" font-size="10" fill="#3f3f46" text-anchor="middle" letter-spacing="3">GPT-4O · GIT HOOKS · CONVENTIONAL COMMITS</text>
+</svg>

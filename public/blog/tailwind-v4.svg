@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#020c10"/>
+      <stop offset="100%" style="stop-color:#041018"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+
+  
+      <rect x="820" y="80" width="330" height="260" rx="8" fill="#020c10" stroke="#0a2030" stroke-width="1"/>
+      <text x="836" y="110" font-family="monospace" font-size="11" fill="#164e63">@import "tailwindcss";</text>
+      <text x="836" y="134" font-family="monospace" font-size="11" fill="#0e7490">@theme {</text>
+      <text x="836" y="154" font-family="monospace" font-size="11" fill="#0891b2">  --font-display:</text>
+      <text x="836" y="174" font-family="monospace" font-size="11" fill="#22d3ee">    "Archivo", sans-serif;</text>
+      <text x="836" y="194" font-family="monospace" font-size="11" fill="#0891b2">  --color-brand:</text>
+      <text x="836" y="214" font-family="monospace" font-size="11" fill="#22d3ee">    oklch(60% 0.2 250);</text>
+      <text x="836" y="234" font-family="monospace" font-size="11" fill="#0e7490">}</text>
+      <line x1="836" y1="250" x2="1130" y2="250" stroke="#0a2030" stroke-width="1"/>
+      <text x="836" y="270" font-family="monospace" font-size="10" fill="#164e63">No more tailwind.config.js ·</text>
+      <text x="836" y="290" font-family="monospace" font-size="10" fill="#164e63">Lightning CSS built-in</text>
+      <text x="836" y="318" font-family="monospace" font-size="10" fill="#061420">Tailwind v4 · CSS-first config</text>
+    
+
+  <!-- Category -->
+  <text x="48" y="72" font-family="Arial, sans-serif" font-size="10" fill="#164e63" letter-spacing="4">CSS · TAILWIND · FRONTEND</text>
+
+  <!-- Title -->
+  <text x="48" y="180" font-family="Arial Black, sans-serif" font-size="56" font-weight="900" fill="#f5f5f5" letter-spacing="-2">Migrating to</text>
+  <text x="48" y="252" font-family="Arial Black, sans-serif" font-size="56" font-weight="900" fill="#f5f5f5" letter-spacing="-2">Tailwind CSS v4:</text>
+  <text x="48" y="324" font-family="Arial Black, sans-serif" font-size="56" font-weight="900" fill="none" stroke="#061420" stroke-width="1.5" letter-spacing="-2">What Changed</text>
+
+  <!-- Description -->
+  <text x="48" y="392" font-family="Arial, sans-serif" font-size="15" fill="#52525b">CSS-first config, Lightning CSS, new utilities,</text>
+  <text x="48" y="414" font-family="Arial, sans-serif" font-size="15" fill="#52525b">and the gotchas that caught me off guard.</text>
+
+  <!-- Meta bar -->
+  <rect x="0" y="610" width="1200" height="65" fill="#020c10" opacity="0.9"/>
+  <line x1="0" y1="610" x2="1200" y2="610" stroke="#061420" stroke-width="1"/>
+  <text x="48" y="652" font-family="Arial, sans-serif" font-size="12" fill="#3f3f46">May 10, 2026</text>
+  <text x="220" y="652" font-family="Arial, sans-serif" font-size="12" fill="#3f3f46">10 min read</text>
+  <text x="1152" y="652" font-family="Arial, sans-serif" font-size="11" fill="#164e63" text-anchor="end">kienhee.com</text>
+</svg>

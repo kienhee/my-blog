@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#080402"/>
+      <stop offset="100%" style="stop-color:#100804"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+
+  
+      <!-- Metrics -->
+      <rect x="820" y="100" width="100" height="80" rx="8" fill="#080402" stroke="#78350f" stroke-width="1"/>
+      <text x="870" y="135" font-family="Arial Black, sans-serif" font-size="22" font-weight="900" fill="#fb923c" text-anchor="middle">1.2s</text>
+      <text x="870" y="158" font-family="monospace" font-size="8" fill="#78350f" text-anchor="middle">LCP</text>
+      <circle cx="870" cy="168" r="4" fill="#22c55e"/>
+      <rect x="934" y="100" width="100" height="80" rx="8" fill="#080402" stroke="#14532d" stroke-width="1"/>
+      <text x="984" y="135" font-family="Arial Black, sans-serif" font-size="22" font-weight="900" fill="#4ade80" text-anchor="middle">0.02</text>
+      <text x="984" y="158" font-family="monospace" font-size="8" fill="#14532d" text-anchor="middle">CLS</text>
+      <circle cx="984" cy="168" r="4" fill="#22c55e"/>
+      <rect x="1048" y="100" width="100" height="80" rx="8" fill="#080402" stroke="#78350f" stroke-width="1"/>
+      <text x="1098" y="135" font-family="Arial Black, sans-serif" font-size="22" font-weight="900" fill="#fb923c" text-anchor="middle">180ms</text>
+      <text x="1098" y="158" font-family="monospace" font-size="8" fill="#78350f" text-anchor="middle">INP</text>
+      <circle cx="1098" cy="168" r="4" fill="#fbbf24"/>
+      <!-- Perf bar chart -->
+      <rect x="820" y="220" width="328" height="180" rx="8" fill="#080402" stroke="#1c0c02" stroke-width="1"/>
+      <text x="836" y="244" font-family="monospace" font-size="9" fill="#78350f">Before</text>
+      <rect x="836" y="252" width="200" height="14" rx="2" fill="#7f1d1d"/>
+      <text x="836" y="278" font-family="monospace" font-size="9" fill="#14532d">After</text>
+      <rect x="836" y="286" width="88" height="14" rx="2" fill="#14532d"/>
+      <text x="836" y="312" font-family="monospace" font-size="9" fill="#78350f">Before</text>
+      <rect x="836" y="320" width="160" height="14" rx="2" fill="#7f1d1d"/>
+      <text x="836" y="346" font-family="monospace" font-size="9" fill="#14532d">After</text>
+      <rect x="836" y="354" width="52" height="14" rx="2" fill="#14532d"/>
+      <text x="1100" y="394" font-family="monospace" font-size="9" fill="#1c0c02" text-anchor="end">56% faster</text>
+    
+
+  <!-- Category -->
+  <text x="48" y="72" font-family="Arial, sans-serif" font-size="10" fill="#78350f" letter-spacing="4">PERFORMANCE · NEXT.JS · FRONTEND</text>
+
+  <!-- Title -->
+  <text x="48" y="180" font-family="Arial Black, sans-serif" font-size="56" font-weight="900" fill="#f5f5f5" letter-spacing="-2">Fixing Core Web</text>
+  <text x="48" y="252" font-family="Arial Black, sans-serif" font-size="56" font-weight="900" fill="#f5f5f5" letter-spacing="-2">Vitals: A Practical</text>
+  <text x="48" y="324" font-family="Arial Black, sans-serif" font-size="56" font-weight="900" fill="none" stroke="#1c0c02" stroke-width="1.5" letter-spacing="-2">Guide</text>
+
+  <!-- Description -->
+  <text x="48" y="392" font-family="Arial, sans-serif" font-size="15" fill="#52525b">Real fixes for LCP, CLS, and INP</text>
+  <text x="48" y="414" font-family="Arial, sans-serif" font-size="15" fill="#52525b">in production Next.js applications.</text>
+
+  <!-- Meta bar -->
+  <rect x="0" y="610" width="1200" height="65" fill="#080402" opacity="0.9"/>
+  <line x1="0" y1="610" x2="1200" y2="610" stroke="#1c0c02" stroke-width="1"/>
+  <text x="48" y="652" font-family="Arial, sans-serif" font-size="12" fill="#3f3f46">Mar 14, 2026</text>
+  <text x="220" y="652" font-family="Arial, sans-serif" font-size="12" fill="#3f3f46">12 min read</text>
+  <text x="1152" y="652" font-family="Arial, sans-serif" font-size="11" fill="#78350f" text-anchor="end">kienhee.com</text>
+</svg>

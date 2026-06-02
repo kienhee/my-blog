@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#060400"/>
+      <stop offset="100%" style="stop-color:#0c0800"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+
+  
+      <!-- Comparison -->
+      <rect x="820" y="100" width="150" height="240" rx="8" fill="#060400" stroke="#1a0e02" stroke-width="1"/>
+      <text x="895" y="128" font-family="Arial Black, sans-serif" font-size="13" font-weight="700" fill="#6e7681" text-anchor="middle">Node 22</text>
+      <text x="895" y="180" font-family="Arial Black, sans-serif" font-size="36" font-weight="900" fill="#6e7681" text-anchor="middle">42k</text>
+      <text x="895" y="202" font-family="monospace" font-size="9" fill="#3f3f46" text-anchor="middle">req/sec</text>
+      <rect x="820" y="218" width="150" height="44" rx="4" fill="#0a0a0a"/>
+      <text x="895" y="244" font-family="monospace" font-size="9" fill="#3f3f46" text-anchor="middle">p99: 8.2ms</text>
+
+      <rect x="988" y="100" width="162" height="240" rx="8" fill="#1a0e02" stroke="#713f12" stroke-width="1"/>
+      <text x="1069" y="128" font-family="Arial Black, sans-serif" font-size="13" font-weight="700" fill="#fbbf24" text-anchor="middle">Bun 2.0</text>
+      <text x="1069" y="180" font-family="Arial Black, sans-serif" font-size="36" font-weight="900" fill="#fbbf24" text-anchor="middle">118k</text>
+      <text x="1069" y="202" font-family="monospace" font-size="9" fill="#713f12" text-anchor="middle">req/sec</text>
+      <rect x="988" y="218" width="162" height="44" rx="4" fill="#120a00"/>
+      <text x="1069" y="244" font-family="monospace" font-size="9" fill="#713f12" text-anchor="middle">p99: 2.9ms</text>
+
+      <text x="975" y="370" font-family="Arial Black, sans-serif" font-size="22" fill="#fbbf24" text-anchor="middle">2.8×</text>
+      <text x="975" y="390" font-family="monospace" font-size="9" fill="#713f12" text-anchor="middle">faster</text>
+    
+
+  <!-- Category -->
+  <text x="48" y="72" font-family="Arial, sans-serif" font-size="10" fill="#713f12" letter-spacing="4">NODE.JS · BUN · BACKEND</text>
+
+  <!-- Title -->
+  <text x="48" y="180" font-family="Arial Black, sans-serif" font-size="56" font-weight="900" fill="#f5f5f5" letter-spacing="-2">Node.js vs Bun</text>
+  <text x="48" y="252" font-family="Arial Black, sans-serif" font-size="56" font-weight="900" fill="#f5f5f5" letter-spacing="-2">in 2026:</text>
+  <text x="48" y="324" font-family="Arial Black, sans-serif" font-size="56" font-weight="900" fill="none" stroke="#1a0e02" stroke-width="1.5" letter-spacing="-2">Which Should You Use?</text>
+
+  <!-- Description -->
+  <text x="48" y="392" font-family="Arial, sans-serif" font-size="15" fill="#52525b">6 months of production data —</text>
+  <text x="48" y="414" font-family="Arial, sans-serif" font-size="15" fill="#52525b">performance, compatibility, ecosystem.</text>
+
+  <!-- Meta bar -->
+  <rect x="0" y="610" width="1200" height="65" fill="#060400" opacity="0.9"/>
+  <line x1="0" y1="610" x2="1200" y2="610" stroke="#1a0e02" stroke-width="1"/>
+  <text x="48" y="652" font-family="Arial, sans-serif" font-size="12" fill="#3f3f46">Feb 28, 2026</text>
+  <text x="220" y="652" font-family="Arial, sans-serif" font-size="12" fill="#3f3f46">8 min read</text>
+  <text x="1152" y="652" font-family="Arial, sans-serif" font-size="11" fill="#713f12" text-anchor="end">kienhee.com</text>
+</svg>

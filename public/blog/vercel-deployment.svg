@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050510"/>
+      <stop offset="100%" style="stop-color:#080818"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+
+  
+      <!-- Pipeline boxes -->
+      <rect x="820" y="130" width="80" height="36" rx="4" fill="#080818" stroke="#1e3a8a" stroke-width="1"/>
+      <text x="860" y="153" font-family="monospace" font-size="9" fill="#3b82f6" text-anchor="middle">git push</text>
+      <line x1="900" y1="148" x2="940" y2="148" stroke="#1e3a8a" stroke-width="1"/>
+      <text x="930" y="145" font-family="monospace" font-size="10" fill="#1e3a8a">›</text>
+      <rect x="940" y="130" width="80" height="36" rx="4" fill="#080818" stroke="#1e3a8a" stroke-width="1"/>
+      <text x="980" y="153" font-family="monospace" font-size="9" fill="#3b82f6" text-anchor="middle">build</text>
+      <line x1="1020" y1="148" x2="1060" y2="148" stroke="#1e3a8a" stroke-width="1"/>
+      <text x="1050" y="145" font-family="monospace" font-size="10" fill="#1e3a8a">›</text>
+      <rect x="1060" y="130" width="80" height="36" rx="4" fill="#080818" stroke="#14532d" stroke-width="1"/>
+      <text x="1100" y="153" font-family="monospace" font-size="9" fill="#22c55e" text-anchor="middle">deploy ✓</text>
+      <!-- Preview URL -->
+      <rect x="820" y="210" width="320" height="28" rx="4" fill="#0a0a18" stroke="#1a1a30" stroke-width="1"/>
+      <text x="836" y="229" font-family="monospace" font-size="9" fill="#3b82f6">https://my-app-pr-42.vercel.app</text>
+      <text x="820" y="270" font-family="monospace" font-size="9" fill="#1e3a8a">Preview · Edge · SSL · Auto</text>
+    
+
+  <!-- Category -->
+  <text x="48" y="72" font-family="Arial, sans-serif" font-size="10" fill="#1e3a8a" letter-spacing="4">DEVOPS · VERCEL · DEPLOYMENT</text>
+
+  <!-- Title -->
+  <text x="48" y="180" font-family="Arial Black, sans-serif" font-size="56" font-weight="900" fill="#f5f5f5" letter-spacing="-2">From Zero to</text>
+  <text x="48" y="252" font-family="Arial Black, sans-serif" font-size="56" font-weight="900" fill="#f5f5f5" letter-spacing="-2">Production with</text>
+  <text x="48" y="324" font-family="Arial Black, sans-serif" font-size="56" font-weight="900" fill="none" stroke="#0a0a20" stroke-width="1.5" letter-spacing="-2">Vercel</text>
+
+  <!-- Description -->
+  <text x="48" y="392" font-family="Arial, sans-serif" font-size="15" fill="#52525b">CI/CD, preview deployments, edge config,</text>
+  <text x="48" y="414" font-family="Arial, sans-serif" font-size="15" fill="#52525b">and a custom domain — in 10 minutes.</text>
+
+  <!-- Meta bar -->
+  <rect x="0" y="610" width="1200" height="65" fill="#050510" opacity="0.9"/>
+  <line x1="0" y1="610" x2="1200" y2="610" stroke="#0a0a20" stroke-width="1"/>
+  <text x="48" y="652" font-family="Arial, sans-serif" font-size="12" fill="#3f3f46">Mar 22, 2026</text>
+  <text x="220" y="652" font-family="Arial, sans-serif" font-size="12" fill="#3f3f46">7 min read</text>
+  <text x="1152" y="652" font-family="Arial, sans-serif" font-size="11" fill="#1e3a8a" text-anchor="end">kienhee.com</text>
+</svg>

@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+/* Class-based dark mode for next-themes */
+@custom-variant dark (&:is(.dark, .dark *));
+
+/* ─── Design Tokens ─────────────────────────────────── */
+:root {
+  --bg: #fafafa;
+  --bg-surface: #ffffff;
+  --bg-surface-2: #f4f4f5;
+  --border: #e4e4e7;
+  --border-subtle: #f4f4f5;
+  --text: #09090b;
+  --text-muted: #52525b;
+  --text-subtle: #a1a1aa;
+  --ring: rgba(9, 9, 11, 0.08);
+}
+
+.dark {
+  --bg: #050505;
+  --bg-surface: #0d0d0d;
+  --bg-surface-2: #141414;
+  --border: #1f1f1f;
+  --border-subtle: #141414;
+  --text: #f5f5f5;
+  --text-muted: #a1a1aa;
+  --text-subtle: #3f3f46;
+  --ring: rgba(255, 255, 255, 0.05);
+}
+
+@theme inline {
+  --font-display: "Archivo", sans-serif;
+  --font-body: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+}
+
+/* ─── Base ──────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+.light { color-scheme: light; }
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body, "Space Grotesk", sans-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ─── Grain Texture ─────────────────────────────────── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.028;
+  pointer-events: none;
+  z-index: 99990;
+  will-change: transform;
+}
+
+/* ─── Selection ─────────────────────────────────────── */
+::selection {
+  background: var(--text);
+  color: var(--bg);
+}
+
+/* ─── Scrollbar ─────────────────────────────────────── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* ─── Focus ─────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ─── Typography ────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display, "Archivo", sans-serif);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+/* ─── Marquee ───────────────────────────────────────── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ─── Fade in animations ────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes reveal-right {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+
+/* ─── Hero line reveal ──────────────────────────────── */
+@keyframes line-expand {
+  from { transform: scaleX(0); transform-origin: left; }
+  to   { transform: scaleX(1); transform-origin: left; }
+}
+
+/* ─── Prose (blog content) ──────────────────────────── */
+.prose {
+  color: var(--text);
+  max-width: 68ch;
+  line-height: 1.85;
+  font-size: 1.0625rem;
+}
+
+.prose h2, .prose h3, .prose h4 {
+  font-family: var(--font-display, "Archivo", sans-serif);
+  letter-spacing: -0.025em;
+  margin-top: 2.5em;
+  margin-bottom: 0.75em;
+}
+
+.prose h2 { font-size: 1.625rem; font-weight: 700; }
+.prose h3 { font-size: 1.25rem; font-weight: 600; }
+
+.prose p { margin-bottom: 1.6em; color: var(--text-muted); }
+
+.prose a {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--border);
+  transition: text-decoration-color 150ms;
+}
+.prose a:hover { text-decoration-color: var(--text); }
+
+.prose code {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.875em;
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.15em 0.45em;
+  color: var(--text);
+}
+
+.prose pre {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 2em 0;
+}
+
+.prose pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 0.875rem;
+  line-height: 1.75;
+}
+
+.prose blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1.5rem;
+  margin-left: 0;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.prose ul, .prose ol {
+  padding-left: 1.5em;
+  margin-bottom: 1.6em;
+  color: var(--text-muted);
+}
+
+.prose li { margin-bottom: 0.5em; }
+.prose hr { border: none; border-top: 1px solid var(--border); margin: 3em 0; }
+.prose strong { color: var(--text); font-weight: 600; }
+
+/* ─── Reduced motion ────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  body { cursor: auto; }
+}
+
+/* ─── Restore cursor on touch devices ──────────────── */
+@media (pointer: coarse) {
+  body { cursor: auto; }
+  a, button { cursor: pointer; }
+}
+
+/* ─── Utility: hide scrollbar ───────────────────────── */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}

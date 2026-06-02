@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#030810"/>
+      <stop offset="100%" style="stop-color:#060c18"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+
+  
+      <rect x="810" y="60" width="350" height="480" rx="8" fill="#060c18" stroke="#0a1830" stroke-width="1"/>
+      <rect x="810" y="60" width="350" height="36" rx="8" fill="#0a1428"/>
+      <rect x="810" y="82" width="350" height="14" fill="#0a1428"/>
+      <circle cx="832" cy="78" r="5" fill="#ff5f57"/>
+      <circle cx="850" cy="78" r="5" fill="#febc2e"/>
+      <circle cx="868" cy="78" r="5" fill="#28c840"/>
+      <text x="985" y="82" font-family="monospace" font-size="9" fill="#1e3a8a" text-anchor="middle">auth.ts — Cursor</text>
+      <text x="828" y="118" font-family="monospace" font-size="10" fill="#1e3a8a">1</text>
+      <text x="848" y="118" font-family="monospace" font-size="10" fill="#3b82f6">import</text>
+      <text x="896" y="118" font-family="monospace" font-size="10" fill="#93c5fd"> { signIn }</text>
+      <text x="828" y="138" font-family="monospace" font-size="10" fill="#1e3a8a">2</text>
+      <text x="848" y="138" font-family="monospace" font-size="10" fill="#1e3a8a">// AI suggestion:</text>
+      <rect x="828" y="148" width="310" height="56" rx="4" fill="#0a1a30" stroke="#1e40af" stroke-width="1"/>
+      <text x="840" y="166" font-family="monospace" font-size="9" fill="#60a5fa">▸ Add rate limiting to prevent</text>
+      <text x="840" y="182" font-family="monospace" font-size="9" fill="#60a5fa">  brute-force attacks on signIn</text>
+      <text x="840" y="196" font-family="monospace" font-size="9" fill="#1e3a8a">  Tab to accept · Esc to dismiss</text>
+    
+
+  <!-- Category -->
+  <text x="48" y="72" font-family="Arial, sans-serif" font-size="10" fill="#1e40af" letter-spacing="4">TOOLS · PRODUCTIVITY · AI</text>
+
+  <!-- Title -->
+  <text x="48" y="180" font-family="Arial Black, sans-serif" font-size="56" font-weight="900" fill="#f5f5f5" letter-spacing="-2">Why I Switched</text>
+  <text x="48" y="252" font-family="Arial Black, sans-serif" font-size="56" font-weight="900" fill="#f5f5f5" letter-spacing="-2">from VS Code</text>
+  <text x="48" y="324" font-family="Arial Black, sans-serif" font-size="56" font-weight="900" fill="none" stroke="#0a0f30" stroke-width="1.5" letter-spacing="-2">to Cursor</text>
+
+  <!-- Description -->
+  <text x="48" y="392" font-family="Arial, sans-serif" font-size="15" fill="#52525b">8 months of daily use — what's better,</text>
+  <text x="48" y="414" font-family="Arial, sans-serif" font-size="15" fill="#52525b">what's overhyped, and is it worth $20/mo.</text>
+
+  <!-- Meta bar -->
+  <rect x="0" y="610" width="1200" height="65" fill="#030810" opacity="0.9"/>
+  <line x1="0" y1="610" x2="1200" y2="610" stroke="#0a0f30" stroke-width="1"/>
+  <text x="48" y="652" font-family="Arial, sans-serif" font-size="12" fill="#3f3f46">Mar 5, 2026</text>
+  <text x="220" y="652" font-family="Arial, sans-serif" font-size="12" fill="#3f3f46">5 min read</text>
+  <text x="1152" y="652" font-family="Arial, sans-serif" font-size="11" fill="#1e40af" text-anchor="end">kienhee.com</text>
+</svg>

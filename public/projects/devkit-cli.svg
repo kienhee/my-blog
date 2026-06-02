@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#070a0f"/>
+      <stop offset="100%" style="stop-color:#0d1117"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+
+  <!-- Subtle grid -->
+  <line x1="0" y1="100" x2="1600" y2="100" stroke="#161b22" stroke-width="1"/>
+  <line x1="0" y1="200" x2="1600" y2="200" stroke="#161b22" stroke-width="1"/>
+  <line x1="0" y1="300" x2="1600" y2="300" stroke="#161b22" stroke-width="1"/>
+  <line x1="0" y1="400" x2="1600" y2="400" stroke="#161b22" stroke-width="1"/>
+  <line x1="0" y1="500" x2="1600" y2="500" stroke="#161b22" stroke-width="1"/>
+  <line x1="0" y1="600" x2="1600" y2="600" stroke="#161b22" stroke-width="1"/>
+  <line x1="0" y1="700" x2="1600" y2="700" stroke="#161b22" stroke-width="1"/>
+  <line x1="0" y1="800" x2="1600" y2="800" stroke="#161b22" stroke-width="1"/>
+  <line x1="0" y1="900" x2="1600" y2="900" stroke="#161b22" stroke-width="1"/>
+
+  <!-- Label top left -->
+  <text x="48" y="72" font-family="monospace, Courier New" font-size="10" fill="#3f3f46" letter-spacing="4">CLI TOOL</text>
+
+  <!-- Terminal window -->
+  <rect x="160" y="100" width="1280" height="760" rx="10" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+  <!-- Terminal title bar -->
+  <rect x="160" y="100" width="1280" height="44" rx="10" fill="#161b22"/>
+  <rect x="160" y="124" width="1280" height="20" fill="#161b22"/>
+  <!-- Traffic lights -->
+  <circle cx="196" cy="122" r="7" fill="#ff5f57"/>
+  <circle cx="220" cy="122" r="7" fill="#febc2e"/>
+  <circle cx="244" cy="122" r="7" fill="#28c840"/>
+  <!-- Terminal title -->
+  <text x="800" y="127" font-family="monospace, Courier New" font-size="12" fill="#6e7681" text-anchor="middle" letter-spacing="1">bash  120×40</text>
+
+  <!-- Terminal content -->
+  <!-- Line 1: prompt + command -->
+  <text x="200" y="196" font-family="monospace, Courier New" font-size="14" fill="#58a6ff">~</text>
+  <text x="220" y="196" font-family="monospace, Courier New" font-size="14" fill="#3fb950">$</text>
+  <text x="236" y="196" font-family="monospace, Courier New" font-size="14" fill="#e6edf3"> npm install -g uipro-cli</text>
+
+  <text x="200" y="228" font-family="monospace, Courier New" font-size="14" fill="#6e7681">added 23 packages in 3s</text>
+
+  <!-- Line 2 -->
+  <text x="200" y="268" font-family="monospace, Courier New" font-size="14" fill="#58a6ff">~</text>
+  <text x="220" y="268" font-family="monospace, Courier New" font-size="14" fill="#3fb950">$</text>
+  <text x="236" y="268" font-family="monospace, Courier New" font-size="14" fill="#e6edf3"> npx devkit init my-saas</text>
+
+  <!-- Output block -->
+  <text x="200" y="308" font-family="monospace, Courier New" font-size="14" fill="#3fb950">  </text>
+  <text x="228" y="308" font-family="monospace, Courier New" font-size="14" fill="#6e7681"> Scaffolding Next.js 16 app...</text>
+  <text x="200" y="336" font-family="monospace, Courier New" font-size="14" fill="#3fb950">  </text>
+  <text x="228" y="336" font-family="monospace, Courier New" font-size="14" fill="#6e7681"> Installing dependencies...</text>
+  <text x="200" y="364" font-family="monospace, Courier New" font-size="14" fill="#3fb950">  </text>
+  <text x="228" y="364" font-family="monospace, Courier New" font-size="14" fill="#6e7681"> Setting up Drizzle ORM + Turso...</text>
+  <text x="200" y="392" font-family="monospace, Courier New" font-size="14" fill="#3fb950">  </text>
+  <text x="228" y="392" font-family="monospace, Courier New" font-size="14" fill="#6e7681"> Configuring Auth.js...</text>
+  <text x="200" y="420" font-family="monospace, Courier New" font-size="14" fill="#3fb950">  </text>
+  <text x="228" y="420" font-family="monospace, Courier New" font-size="14" fill="#6e7681"> Adding Resend email integration...</text>
+  <text x="200" y="448" font-family="monospace, Courier New" font-size="14" fill="#3fb950">  </text>
+  <text x="228" y="448" font-family="monospace, Courier New" font-size="14" fill="#6e7681"> Setting up Stripe payments...</text>
+  <text x="200" y="476" font-family="monospace, Courier New" font-size="14" fill="#3fb950">  </text>
+  <text x="228" y="476" font-family="monospace, Courier New" font-size="14" fill="#6e7681"> Generating TypeScript types...</text>
+
+  <rect x="200" y="496" width="1200" height="1" fill="#21262d"/>
+
+  <text x="200" y="526" font-family="monospace, Courier New" font-size="16" fill="#58a6ff" font-weight="bold">  Æ my-saas ready in 28 seconds!</text>
+
+  <text x="200" y="566" font-family="monospace, Courier New" font-size="13" fill="#6e7681">  Next steps:</text>
+  <text x="200" y="594" font-family="monospace, Courier New" font-size="13" fill="#6e7681">    cd my-saas</text>
+  <text x="200" y="620" font-family="monospace, Courier New" font-size="13" fill="#6e7681">    cp .env.example .env.local</text>
+  <text x="200" y="646" font-family="monospace, Courier New" font-size="13" fill="#6e7681">    pnpm dev</text>
+
+  <!-- Line 3: new prompt -->
+  <text x="200" y="700" font-family="monospace, Courier New" font-size="14" fill="#58a6ff">my-saas</text>
+  <text x="290" y="700" font-family="monospace, Courier New" font-size="14" fill="#3fb950">$</text>
+  <text x="306" y="700" font-family="monospace, Courier New" font-size="14" fill="#e6edf3"> pnpm dev</text>
+
+  <text x="200" y="736" font-family="monospace, Courier New" font-size="14" fill="#3fb950">  ² Next.js 16.2.6</text>
+  <text x="200" y="762" font-family="monospace, Courier New" font-size="14" fill="#6e7681">  - Local: </text>
+  <text x="296" y="762" font-family="monospace, Courier New" font-size="14" fill="#58a6ff">http://localhost:3000</text>
+
+  <!-- Blinking cursor -->
+  <rect x="200" y="790" width="10" height="20" fill="#e6edf3" opacity="0.7"/>
+
+  <!-- Label -->
+  <text x="800" y="960" font-family="monospace, Courier New" font-size="11" fill="#3f3f46" text-anchor="middle" letter-spacing="3">DEVKIT-CLI  ZERO CONFIG NEXT.JS SCAFFOLDING</text>
+</svg>
