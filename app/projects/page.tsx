@@ -81,27 +81,6 @@ export default function ProjectsPage() {
         </section>
       )}
 
-      {/* ─── Upload instructions ─────────────────────────── */}
-      <AnimateIn>
-        <div className="mx-6 md:mx-12 my-8 p-6 border border-dashed border-[var(--border)] rounded-xl bg-[var(--bg-surface)]">
-          <p className="font-mono text-[10px] tracking-widest uppercase text-[var(--text-subtle)] mb-2">
-            Add project screenshots
-          </p>
-          <p className="text-sm text-[var(--text-muted)] leading-relaxed mb-1">
-            Upload ảnh vào thư mục <code className="font-mono text-sm bg-[var(--bg-surface-2)] border border-[var(--border)] px-1.5 py-0.5 rounded text-[var(--text)]">public/projects/</code> với tên file tương ứng:
-          </p>
-          <div className="mt-3 space-y-1">
-            {PROJECTS.map((p) => (
-              <p key={p.slug} className="font-mono text-[10px] text-[var(--text-subtle)]">
-                <span className="text-[var(--text-muted)]">{p.name}</span>
-                {" → "}
-                <span className="text-emerald-500">{p.image ?? "(no image set)"}</span>
-              </p>
-            ))}
-          </div>
-        </div>
-      </AnimateIn>
-
       {/* ─── Open source CTA ─────────────────────────────── */}
       <AnimateIn>
         <div className="mx-6 md:mx-12 mb-12 p-8 border border-[var(--border)] bg-[var(--bg-surface)] rounded-2xl">

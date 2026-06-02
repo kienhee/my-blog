@@ -21,7 +21,7 @@ export const POSTS: Post[] = [
     tags: ["React", "Next.js", "Architecture"],
     readingTime: 8,
     featured: true,
-    image: "/blog/react-server-components.svg",
+    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=1600&q=80",
     content: `
 ## What Are React Server Components?
 
@@ -95,7 +95,7 @@ RSC isn't just a performance optimization — it's a new programming model. Once
     tags: ["Next.js", "Database", "TypeScript"],
     readingTime: 11,
     featured: true,
-    image: "/blog/nextjs-drizzle.svg",
+    image: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1600&q=80",
     content: `
 ## Why Drizzle?
 
@@ -161,7 +161,7 @@ The Drizzle + Turso + Next.js stack gives you full-stack TypeScript with near-ze
     tags: ["Engineering", "Productivity", "Mindset"],
     readingTime: 6,
     featured: true,
-    image: "/blog/over-engineering.svg",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80",
     content: `
 ## The Six-Month Project That Never Shipped
 
@@ -204,7 +204,7 @@ The best architecture is the one that ships. Everything else is a hypothesis.
     date: "2026-03-22",
     tags: ["DevOps", "Vercel", "Deployment"],
     readingTime: 7,
-    image: "/blog/vercel-deployment.svg",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80",
     content: `
 ## Why Vercel?
 
@@ -252,7 +252,7 @@ For indie devs and small teams, Vercel's free tier is more than enough to get st
     date: "2026-03-05",
     tags: ["Tools", "Productivity", "AI"],
     readingTime: 5,
-    image: "/blog/cursor-editor.svg",
+    image: "https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&w=1600&q=80",
     content: `
 ## The Switch
 
@@ -291,7 +291,7 @@ Yes. The $20/month pays for itself in the first week if you're a professional de
     date: "2026-02-18",
     tags: ["TypeScript", "Engineering"],
     readingTime: 9,
-    image: "/blog/typescript-tricks.svg",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1600&q=80",
     content: `
 ## 1. The \`satisfies\` Operator
 
@@ -338,7 +338,7 @@ TypeScript's type system is Turing complete. Most developers use 10% of it.
     date: "2026-05-10",
     tags: ["CSS", "Tailwind", "Frontend"],
     readingTime: 10,
-    image: "/blog/tailwind-v4.svg",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80",
     content: `
 ## The Biggest Change: No More tailwind.config.js
 
@@ -383,7 +383,7 @@ The migration took me about 4 hours for a medium-sized project. The CSS-first DX
     date: "2026-04-20",
     tags: ["Design", "Frontend", "Architecture"],
     readingTime: 13,
-    image: "/blog/design-system.svg",
+    image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1600&q=80",
     content: `
 ## Why Build Your Own?
 
@@ -455,7 +455,7 @@ A design system is a product. Treat it like one.
     date: "2026-03-14",
     tags: ["Performance", "Next.js", "Frontend"],
     readingTime: 12,
-    image: "/blog/web-performance.svg",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
     content: `
 ## The Problem With "It Works On My Machine"
 
@@ -513,7 +513,7 @@ Performance is a feature. Ship it like one.
     date: "2026-02-28",
     tags: ["Node.js", "Bun", "Backend"],
     readingTime: 8,
-    image: "/blog/node-vs-bun.svg",
+    image: "https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=1600&q=80",
     content: `
 ## The State of Bun in 2026
 
@@ -560,7 +560,7 @@ Don't rewrite a working system because of benchmarks.
     date: "2026-01-30",
     tags: ["API", "Backend", "Architecture"],
     readingTime: 11,
-    image: "/blog/api-design.svg",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=80",
     content: `
 ## Consistent Error Responses
 
@@ -629,7 +629,7 @@ Good API design is invisible. Users only notice when it's bad.
     date: "2026-01-15",
     tags: ["Git", "Tools", "Productivity"],
     readingTime: 6,
-    image: "/blog/git-workflow.svg",
+    image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&w=1600&q=80",
     content: `
 ## The Problem With Gitflow For Solo Devs
 

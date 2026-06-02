@@ -4,7 +4,6 @@ import { ArrowLeft, ArrowUpRight, ArrowRight } from "lucide-react";
 import { getProjectBySlug, PROJECTS } from "@/lib/projects";
 import { GitHubIcon } from "@/components/icons";
 import { ViewTransition } from "react";
-import { Magnetic } from "@/components/Magnetic";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -200,28 +199,24 @@ export default async function ProjectPage({ params }: Props) {
               {/* Action Buttons */}
               <div className="pt-4 border-t border-[var(--border)] space-y-3">
                 {project.url && (
-                  <Magnetic>
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg text-sm font-mono tracking-widest uppercase bg-[var(--text)] text-[var(--bg)] hover:opacity-90 transition-opacity"
-                    >
-                      Live Project <ArrowUpRight size={12} />
-                    </a>
-                  </Magnetic>
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg text-sm font-mono tracking-widest uppercase bg-[var(--text)] text-[var(--bg)] hover:opacity-90 transition-opacity"
+                  >
+                    Live Project <ArrowUpRight size={12} />
+                  </a>
                 )}
                 {project.github && (
-                  <Magnetic>
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg text-sm font-mono tracking-widest uppercase border border-[var(--border)] hover:bg-[var(--bg-surface-2)] transition-colors"
-                    >
-                      <GitHubIcon size={12} /> Source Code
-                    </a>
-                  </Magnetic>
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg text-sm font-mono tracking-widest uppercase border border-[var(--border)] hover:bg-[var(--bg-surface-2)] transition-colors"
+                  >
+                    <GitHubIcon size={12} /> Source Code
+                  </a>
                 )}
               </div>
             </div>

@@ -6,7 +6,6 @@ import { useTheme } from "@/components/ThemeProvider";
 import { SunIcon, MoonIcon } from "@animateicons/react/lucide";
 import type { SunIconHandle, MoonIconHandle } from "@animateicons/react/lucide";
 import { useEffect, useRef, useState } from "react";
-import { Magnetic } from "@/components/Magnetic";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -55,19 +54,13 @@ export function Navbar() {
         <Link
           href="/"
           aria-label="Kienhee — Home"
-          className="font-display font-black tracking-tighter text-[var(--text)] flex items-baseline overflow-hidden"
-          style={{ fontSize: "1.5rem", lineHeight: 1 }}
+          className="font-display font-black tracking-tighter text-[var(--text)] flex items-baseline overflow-hidden text-[1.35rem] sm:text-[1.5rem] leading-none"
         >
           <span>K</span>
           <span
-            style={{
-              maxWidth: scrolled ? "0" : "6.5rem",
-              opacity: scrolled ? 0 : 1,
-              overflow: "hidden",
-              display: "inline-block",
-              transition: "max-width 400ms cubic-bezier(0.4,0,0.2,1), opacity 250ms ease",
-              whiteSpace: "nowrap",
-            }}
+            className={`inline-block overflow-hidden whitespace-nowrap transition-[max-width,opacity] duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+              scrolled ? "max-w-0 opacity-0" : "max-w-[6rem] sm:max-w-[6.5rem] opacity-100"
+            }`}
           >
             ienhee.
           </span>
@@ -88,35 +81,32 @@ export function Navbar() {
           {NAV_LINKS.map(({ href, label }) => {
             const isActive = href === "/" ? pathname === "/" : pathname.startsWith(href);
             return (
-              <Magnetic key={href}>
-                <Link
-                  href={href}
+              <Link
+                key={href}
+                href={href}
                 className={`px-4 py-1.5 text-sm  font-semibold tracking-widest uppercase transition-colors duration-150 ${
-                    isActive
-                      ? "text-[var(--text)]"
-                      : "text-[var(--text-subtle)] hover:text-[var(--text-muted)]"
-                  }`}
-                >
-                  {label}
-                </Link>
-              </Magnetic>
+                  isActive
+                    ? "text-[var(--text)]"
+                    : "text-[var(--text-subtle)] hover:text-[var(--text-muted)]"
+                }`}
+              >
+                {label}
+              </Link>
             );
           })}
 
           {mounted && (
-            <Magnetic>
-              <button
-                onClick={handleThemeToggle}
-                onMouseEnter={() => isDark ? sunRef.current?.startAnimation() : moonRef.current?.startAnimation()}
-                aria-label="Toggle theme"
-                className="ml-4 p-2 text-[var(--text-subtle)] hover:text-[var(--text)] transition-colors"
-              >
-                {isDark
-                  ? <SunIcon ref={sunRef} size={15} color="currentColor" />
-                  : <MoonIcon ref={moonRef} size={15} color="currentColor" />
-                }
-              </button>
-            </Magnetic>
+            <button
+              onClick={handleThemeToggle}
+              onMouseEnter={() => isDark ? sunRef.current?.startAnimation() : moonRef.current?.startAnimation()}
+              aria-label="Toggle theme"
+              className="ml-4 p-2 text-[var(--text-subtle)] hover:text-[var(--text)] transition-colors"
+            >
+              {isDark
+                ? <SunIcon ref={sunRef} size={15} color="currentColor" />
+                : <MoonIcon ref={moonRef} size={15} color="currentColor" />
+              }
+            </button>
           )}
         </div>
 

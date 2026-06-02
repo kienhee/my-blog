@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { ArrowRight, Check, Loader } from "lucide-react";
-import { Magnetic } from "@/components/Magnetic";
 
 export function NewsletterForm() {
   const [email, setEmail] = useState("");
@@ -54,8 +53,7 @@ export function NewsletterForm() {
           disabled={state === "loading"}
           className="flex-1 min-w-0 px-4 py-2.5 rounded-lg text-sm bg-[var(--bg-surface)] border border-[var(--border)] text-[var(--text)] placeholder:text-[var(--text-subtle)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--text)] transition-all duration-150 disabled:opacity-50"
         />
-        <Magnetic>
-          <button
+         <button
             type="submit"
             aria-label="Subscribe to newsletter"
             disabled={state === "loading" || !email}
@@ -68,7 +66,6 @@ export function NewsletterForm() {
             )}
             <span className="hidden sm:inline">Subscribe</span>
           </button>
-        </Magnetic>
       </div>
       {error && <p className="text-sm text-red-400">{error}</p>}
     </form>
