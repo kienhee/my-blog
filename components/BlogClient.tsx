@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useRef } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { Clock, ArrowUpRight } from "lucide-react";
 import { SearchIcon, XIcon, LayoutGridIcon, LayoutListIcon } from "@animateicons/react/lucide";
 import type { XIconHandle, LayoutGridIconHandle, LayoutListIconHandle } from "@animateicons/react/lucide";
@@ -20,6 +20,7 @@ function GridCard({ post }: { post: Post }) {
   return (
     <Link
       href={`/blog/${post.slug}`}
+      transitionTypes={["nav-forward"]}
       className="group flex flex-col overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] hover:border-[var(--border-hover)] transition-all duration-300"
     >
       {/* Cover image */}
@@ -78,14 +79,19 @@ function GridCard({ post }: { post: Post }) {
         </div>
 
         {/* Title */}
-        <h2 className="font-display font-bold text-sm lg:text-base leading-snug text-[var(--text)] group-hover:text-[var(--text-muted)] transition-colors line-clamp-2">
+        <h2 className="font-display font-bold text-base lg:text-lg leading-snug text-[var(--text)] group-hover:text-[var(--text-muted)] transition-colors line-clamp-2">
           {post.title}
         </h2>
 
         {/* Description */}
-        <p className="text-xs text-[var(--text-subtle)] leading-relaxed line-clamp-2 flex-1">
+        <p className="text-sm text-[var(--text-subtle)] leading-relaxed line-clamp-2 flex-1">
           {post.description}
         </p>
+
+        <span className="inline-flex items-center gap-1 font-mono text-[10px] tracking-widest uppercase text-[var(--text-subtle)] group-hover:text-[var(--text)] transition-colors">
+          Read more
+          <ArrowUpRight size={11} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+        </span>
       </div>
     </Link>
   );
@@ -96,9 +102,10 @@ function ListRow({ post, index }: { post: Post; index: number }) {
   return (
     <Link
       href={`/blog/${post.slug}`}
+      transitionTypes={["nav-forward"]}
       className="group relative grid grid-cols-[3rem_1fr] lg:grid-cols-[3rem_1fr_160px_100px_2rem] items-center gap-4 lg:gap-8 py-5 border-b border-[var(--border-subtle)] hover:border-[var(--border)] transition-all"
     >
-      <span className="font-mono text-xs text-[var(--text-subtle)] group-hover:text-[var(--text-muted)] transition-colors">
+      <span className="font-mono text-sm text-[var(--text-subtle)] group-hover:text-[var(--text-muted)] transition-colors">
         {String(index + 1).padStart(2, "0")}
       </span>
 
@@ -106,7 +113,7 @@ function ListRow({ post, index }: { post: Post; index: number }) {
         <h2 className="font-display font-semibold text-sm lg:text-base leading-snug text-[var(--text)] group-hover:text-[var(--text-muted)] transition-colors truncate">
           {post.title}
         </h2>
-        <p className="text-xs text-[var(--text-subtle)] mt-0.5 line-clamp-1 hidden sm:block">
+        <p className="text-sm text-[var(--text-subtle)] mt-0.5 line-clamp-1 hidden sm:block">
           {post.description}
         </p>
       </div>
@@ -139,10 +146,15 @@ function ListRow({ post, index }: { post: Post; index: number }) {
 export function BlogClient({ posts, tags }: BlogClientProps) {
   const [query, setQuery] = useState("");
   const [activeTag, setActiveTag] = useState<string | null>(null);
-  const [view, setView] = useState<ViewMode>(() => {
-    if (typeof window === "undefined") return "grid";
-    return (localStorage.getItem("blog-view") as ViewMode) || "grid";
-  });
+  // Keep initial render stable (prevents hydration mismatch).
+  const [view, setView] = useState<ViewMode>("grid");
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem("blog-view") as ViewMode | null;
+      if (stored === "grid" || stored === "list") setView(stored);
+    } catch {}
+  }, []);
 
   const clearIconRef = useRef<XIconHandle>(null);
   const gridIconRef = useRef<LayoutGridIconHandle>(null);
@@ -166,6 +178,7 @@ export function BlogClient({ posts, tags }: BlogClientProps) {
   }, [posts, query, activeTag]);
 
   const hasFilters = query || activeTag;
+  const SHOW_LOAD_MORE = 8;
 
   return (
     <div>
@@ -180,9 +193,11 @@ export function BlogClient({ posts, tags }: BlogClientProps) {
           <input
             type="search"
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => {
+              setQuery(e.target.value);
+            }}
             placeholder="Search articles…"
-            className="w-full pl-8 pr-4 py-2 text-xs font-mono bg-[var(--bg-surface)] border border-[var(--border)] rounded text-[var(--text)] placeholder:text-[var(--text-subtle)] focus:outline-none focus:border-[var(--text-muted)] transition-colors"
+            className="w-full pl-8 pr-4 py-2 text-sm font-mono bg-[var(--bg-surface)] border border-[var(--border)] rounded text-[var(--text)] placeholder:text-[var(--text-subtle)] focus:outline-none focus:border-[var(--text-muted)] transition-colors"
           />
         </div>
 
@@ -230,7 +245,9 @@ export function BlogClient({ posts, tags }: BlogClientProps) {
       {/* ── Row 2: Tags (scrollable) ── */}
       <div className="flex items-center gap-2 mb-8 overflow-x-auto pb-1 scrollbar-none">
         <button
-          onClick={() => setActiveTag(null)}
+          onClick={() => {
+            setActiveTag(null);
+          }}
           className={`shrink-0 px-3 py-1.5 rounded font-mono text-[10px] tracking-widest uppercase transition-colors ${
             !activeTag
               ? "bg-[var(--text)] text-[var(--bg)]"
@@ -242,7 +259,9 @@ export function BlogClient({ posts, tags }: BlogClientProps) {
         {tags.map((tag) => (
           <button
             key={tag}
-            onClick={() => setActiveTag(activeTag === tag ? null : tag)}
+            onClick={() => {
+              setActiveTag(activeTag === tag ? null : tag);
+            }}
             className={`shrink-0 px-3 py-1.5 rounded font-mono text-[10px] tracking-widest uppercase transition-colors ${
               activeTag === tag
                 ? "bg-[var(--text)] text-[var(--bg)]"
@@ -271,7 +290,7 @@ export function BlogClient({ posts, tags }: BlogClientProps) {
       {/* ── Content ── */}
       {filtered.length === 0 ? (
         <div className="py-24 text-center">
-          <p className="font-mono text-xs tracking-widest uppercase text-[var(--text-subtle)]">
+          <p className="font-mono text-sm tracking-widest uppercase text-[var(--text-subtle)]">
             No articles found
           </p>
         </div>
@@ -286,6 +305,18 @@ export function BlogClient({ posts, tags }: BlogClientProps) {
           {filtered.map((post, i) => (
             <ListRow key={post.slug} post={post} index={i} />
           ))}
+        </div>
+      )}
+
+      {/* ── Load more (UI only) ── */}
+      {filtered.length > SHOW_LOAD_MORE && (
+        <div className="mt-12 flex items-center justify-center">
+          <button
+            type="button"
+            className="px-8 py-3 rounded-full border z-10 border-[var(--text)] bg-[var(--text)] text-[var(--bg)] font-mono text-sm font-semibold tracking-widest uppercase hover:opacity-85 transition-opacity duration-200 cursor-pointer"
+          >
+            Load more
+          </button>
         </div>
       )}
     </div>

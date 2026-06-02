@@ -11,6 +11,13 @@ export function CustomCursor() {
   const [hovered, setHovered] = useState(false);
   const [clicked, setClicked] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [isTextCursor, setIsTextCursor] = useState(false);
+  const isTextCursorRef = useRef(false);
+
+  const setIsTextCursorState = (val: boolean) => {
+    isTextCursorRef.current = val;
+    setIsTextCursor(val);
+  };
 
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
@@ -24,16 +31,35 @@ export function CustomCursor() {
     const onEnter = () => setHovered(true);
     const onLeave = () => setHovered(false);
 
+    const onInputEnter = () => setIsTextCursorState(true);
+    const onInputLeave = () => setIsTextCursorState(false);
+
+    const onMouseLeaveWindow = () => setVisible(false);
+    const onMouseEnterWindow = () => setVisible(true);
+
     document.addEventListener("mousemove", onMove);
     document.addEventListener("mousedown", onMouseDown);
     document.addEventListener("mouseup", onMouseUp);
+    document.addEventListener("mouseleave", onMouseLeaveWindow);
+    document.addEventListener("mouseenter", onMouseEnterWindow);
 
     const addHoverListeners = () => {
       document
-        .querySelectorAll("a, button, [role='button'], input, textarea, label")
+        .querySelectorAll("a, button, [role='button'], input[type='submit'], input[type='button'], label")
         .forEach((el) => {
+          el.removeEventListener("mouseenter", onEnter);
+          el.removeEventListener("mouseleave", onLeave);
           el.addEventListener("mouseenter", onEnter);
           el.addEventListener("mouseleave", onLeave);
+        });
+
+      document
+        .querySelectorAll("input:not([type='submit']):not([type='button']), textarea, [contenteditable]")
+        .forEach((el) => {
+          el.removeEventListener("mouseenter", onInputEnter);
+          el.removeEventListener("mouseleave", onInputLeave);
+          el.addEventListener("mouseenter", onInputEnter);
+          el.addEventListener("mouseleave", onInputLeave);
         });
     };
 
@@ -49,7 +75,9 @@ export function CustomCursor() {
       ring.current.y = lerp(ring.current.y, pos.current.y, 0.12);
 
       if (dotRef.current) {
-        dotRef.current.style.transform = `translate(${pos.current.x - 4}px, ${pos.current.y - 4}px)`;
+        const dx = isTextCursorRef.current ? -1 : -4;
+        const dy = isTextCursorRef.current ? -8 : -4;
+        dotRef.current.style.transform = `translate(${pos.current.x + dx}px, ${pos.current.y + dy}px)`;
       }
       if (ringRef.current) {
         ringRef.current.style.transform = `translate(${ring.current.x - 20}px, ${ring.current.y - 20}px)`;
@@ -64,6 +92,8 @@ export function CustomCursor() {
       document.removeEventListener("mousemove", onMove);
       document.removeEventListener("mousedown", onMouseDown);
       document.removeEventListener("mouseup", onMouseUp);
+      document.removeEventListener("mouseleave", onMouseLeaveWindow);
+      document.removeEventListener("mouseenter", onMouseEnterWindow);
       observer.disconnect();
       cancelAnimationFrame(raf.current);
     };
@@ -83,15 +113,15 @@ export function CustomCursor() {
           position: "fixed",
           top: 0,
           left: 0,
-          width: 8,
-          height: 8,
-          borderRadius: "50%",
+          width: isTextCursor ? 2 : 8,
+          height: isTextCursor ? 16 : 8,
+          borderRadius: isTextCursor ? 0 : "50%",
           backgroundColor: "white",
           pointerEvents: "none",
           zIndex: 99999,
           mixBlendMode: "difference",
           opacity: visible ? 1 : 0,
-          transition: "opacity 300ms, width 200ms, height 200ms",
+          transition: "opacity 300ms, width 200ms, height 200ms, border-radius 200ms",
           willChange: "transform",
         }}
       />
@@ -103,15 +133,15 @@ export function CustomCursor() {
           position: "fixed",
           top: 0,
           left: 0,
-          width: hovered ? 56 : 40,
-          height: hovered ? 56 : 40,
+          width: isTextCursor ? 0 : (hovered ? 56 : 40),
+          height: isTextCursor ? 0 : (hovered ? 56 : 40),
           borderRadius: "50%",
-          border: "1px solid white",
+          border: isTextCursor ? "0px solid white" : "1px solid white",
           pointerEvents: "none",
           zIndex: 99998,
           mixBlendMode: "difference",
-          opacity: visible ? (hovered ? 1 : 0.4) : 0,
-          transition: "opacity 300ms, width 300ms cubic-bezier(0.4,0,0.2,1), height 300ms cubic-bezier(0.4,0,0.2,1)",
+          opacity: visible ? (isTextCursor ? 0 : (hovered ? 1 : 0.4)) : 0,
+          transition: "opacity 300ms, width 300ms cubic-bezier(0.4,0,0.2,1), height 300ms cubic-bezier(0.4,0,0.2,1), border 300ms",
           willChange: "transform",
           transform: clicked ? "scale(0.85)" : "scale(1)",
         }}

@@ -84,7 +84,7 @@ export function PostActions({ slug, title }: PostActionsProps) {
         onClick={() => handleVote("like")}
         onMouseEnter={() => likeRef.current?.startAnimation()}
         aria-label="Like"
-        className={`flex items-center gap-2 px-4 py-2 rounded-full border text-xs font-mono tracking-wide transition-all duration-200 ${
+        className={`flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-mono tracking-wide transition-all duration-200 ${
           vote === "like"
             ? "bg-[var(--text)] text-[var(--bg)] border-[var(--text)]"
             : "border-[var(--border)] text-[var(--text-subtle)] hover:border-[var(--text-muted)] hover:text-[var(--text)]"
@@ -99,7 +99,7 @@ export function PostActions({ slug, title }: PostActionsProps) {
         onClick={() => handleVote("dislike")}
         onMouseEnter={() => dislikeRef.current?.startAnimation()}
         aria-label="Dislike"
-        className={`flex items-center gap-2 px-4 py-2 rounded-full border text-xs font-mono tracking-wide transition-all duration-200 ${
+        className={`flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-mono tracking-wide transition-all duration-200 ${
           vote === "dislike"
             ? "bg-[var(--text)] text-[var(--bg)] border-[var(--text)]"
             : "border-[var(--border)] text-[var(--text-subtle)] hover:border-[var(--text-muted)] hover:text-[var(--text)]"
@@ -116,7 +116,7 @@ export function PostActions({ slug, title }: PostActionsProps) {
         onClick={handleShare}
         onMouseEnter={() => shareRef.current?.startAnimation()}
         aria-label="Share"
-        className="flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border)] text-xs font-mono tracking-wide text-[var(--text-subtle)] hover:border-[var(--text-muted)] hover:text-[var(--text)] transition-all duration-200"
+        className="flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border)] text-sm font-mono tracking-wide text-[var(--text-subtle)] hover:border-[var(--text-muted)] hover:text-[var(--text)] transition-all duration-200"
       >
         {copied ? (
           <>

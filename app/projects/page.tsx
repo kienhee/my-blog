@@ -1,3 +1,4 @@
+import { ViewTransition } from "react";
 import type { Metadata } from "next";
 import { ArrowUpRight } from "lucide-react";
 import { PROJECTS } from "@/lib/projects";
@@ -17,7 +18,8 @@ const wipProjects = PROJECTS.filter((p) => p.status === "wip");
 
 export default function ProjectsPage() {
   return (
-    <div className="pt-14">
+    <ViewTransition>
+      <div className="pt-14">
       {/* ─── Header ─────────────────────────────────────── */}
       <div className="px-6 md:px-12 pt-16 pb-12 border-b border-[var(--border)]">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
@@ -86,7 +88,7 @@ export default function ProjectsPage() {
             Add project screenshots
           </p>
           <p className="text-sm text-[var(--text-muted)] leading-relaxed mb-1">
-            Upload ảnh vào thư mục <code className="font-mono text-xs bg-[var(--bg-surface-2)] border border-[var(--border)] px-1.5 py-0.5 rounded text-[var(--text)]">public/projects/</code> với tên file tương ứng:
+            Upload ảnh vào thư mục <code className="font-mono text-sm bg-[var(--bg-surface-2)] border border-[var(--border)] px-1.5 py-0.5 rounded text-[var(--text)]">public/projects/</code> với tên file tương ứng:
           </p>
           <div className="mt-3 space-y-1">
             {PROJECTS.map((p) => (
@@ -142,5 +144,6 @@ export default function ProjectsPage() {
         </AnimateIn>
       </div>
     </div>
+    </ViewTransition>
   );
 }

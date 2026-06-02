@@ -22,6 +22,21 @@ function applyTheme(theme: Theme) {
   root.classList.add(theme);
 }
 
+function setThemeCookie(theme: Theme) {
+  try {
+    document.cookie = `theme=${theme}; Path=/; Max-Age=31536000; SameSite=Lax`;
+  } catch {}
+}
+
+function getThemeCookie(): Theme | null {
+  try {
+    const m = document.cookie.match(/(?:^|;\s*)theme=(dark|light)(?:;|$)/);
+    return (m?.[1] as Theme | undefined) ?? null;
+  } catch {
+    return null;
+  }
+}
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>("dark");
 
@@ -31,14 +46,20 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     try {
       const val = localStorage.getItem("theme");
       if (val === "light" || val === "dark") stored = val;
+      else {
+        const cookieTheme = getThemeCookie();
+        if (cookieTheme) stored = cookieTheme;
+      }
     } catch {}
     setThemeState(stored);
     applyTheme(stored);
+    setThemeCookie(stored);
   }, []);
 
   function setTheme(t: Theme) {
     setThemeState(t);
     applyTheme(t);
+    setThemeCookie(t);
     try {
       localStorage.setItem("theme", t);
     } catch {}

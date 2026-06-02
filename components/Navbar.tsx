@@ -6,8 +6,10 @@ import { useTheme } from "@/components/ThemeProvider";
 import { SunIcon, MoonIcon } from "@animateicons/react/lucide";
 import type { SunIconHandle, MoonIconHandle } from "@animateicons/react/lucide";
 import { useEffect, useRef, useState } from "react";
+import { Magnetic } from "@/components/Magnetic";
 
 const NAV_LINKS = [
+  { href: "/", label: "Home" },
   { href: "/blog", label: "Blog" },
   { href: "/projects", label: "Projects" },
   { href: "/about", label: "About" },
@@ -84,34 +86,37 @@ export function Navbar() {
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-0">
           {NAV_LINKS.map(({ href, label }) => {
-            const isActive = pathname.startsWith(href);
+            const isActive = href === "/" ? pathname === "/" : pathname.startsWith(href);
             return (
-              <Link
-                key={href}
-                href={href}
-                className={`px-4 py-1.5 text-xs font-mono tracking-widest uppercase transition-colors duration-150 ${
-                  isActive
-                    ? "text-[var(--text)]"
-                    : "text-[var(--text-subtle)] hover:text-[var(--text-muted)]"
-                }`}
-              >
-                {label}
-              </Link>
+              <Magnetic key={href}>
+                <Link
+                  href={href}
+                className={`px-4 py-1.5 text-sm  font-semibold tracking-widest uppercase transition-colors duration-150 ${
+                    isActive
+                      ? "text-[var(--text)]"
+                      : "text-[var(--text-subtle)] hover:text-[var(--text-muted)]"
+                  }`}
+                >
+                  {label}
+                </Link>
+              </Magnetic>
             );
           })}
 
           {mounted && (
-            <button
-              onClick={handleThemeToggle}
-              onMouseEnter={() => isDark ? sunRef.current?.startAnimation() : moonRef.current?.startAnimation()}
-              aria-label="Toggle theme"
-              className="ml-4 p-2 text-[var(--text-subtle)] hover:text-[var(--text)] transition-colors"
-            >
-              {isDark
-                ? <SunIcon ref={sunRef} size={15} color="currentColor" />
-                : <MoonIcon ref={moonRef} size={15} color="currentColor" />
-              }
-            </button>
+            <Magnetic>
+              <button
+                onClick={handleThemeToggle}
+                onMouseEnter={() => isDark ? sunRef.current?.startAnimation() : moonRef.current?.startAnimation()}
+                aria-label="Toggle theme"
+                className="ml-4 p-2 text-[var(--text-subtle)] hover:text-[var(--text)] transition-colors"
+              >
+                {isDark
+                  ? <SunIcon ref={sunRef} size={15} color="currentColor" />
+                  : <MoonIcon ref={moonRef} size={15} color="currentColor" />
+                }
+              </button>
+            </Magnetic>
           )}
         </div>
 
@@ -133,6 +138,7 @@ export function Navbar() {
           <button
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Toggle menu"
+            aria-expanded={menuOpen}
             className="p-2 text-[var(--text-subtle)] hover:text-[var(--text)] transition-colors"
           >
             <span className="flex flex-col gap-[5px] w-5">
@@ -152,12 +158,12 @@ export function Navbar() {
       >
         <div className="px-6 py-6 flex flex-col gap-4">
           {NAV_LINKS.map(({ href, label }) => {
-            const isActive = pathname.startsWith(href);
+            const isActive = href === "/" ? pathname === "/" : pathname.startsWith(href);
             return (
               <Link
                 key={href}
                 href={href}
-                className={`font-mono text-xs tracking-widest uppercase transition-colors ${
+                className={`font-mono font-semibold text-sm tracking-widest uppercase transition-colors ${
                   isActive ? "text-[var(--text)]" : "text-[var(--text-subtle)] hover:text-[var(--text-muted)]"
                 }`}
               >

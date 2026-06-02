@@ -17,7 +17,7 @@ export function Footer() {
             >
               Kienhee
             </Link>
-            <p className="text-xs text-[var(--text-subtle)] leading-relaxed max-w-[14rem]">
+            <p className="text-sm text-[var(--text-subtle)] leading-relaxed max-w-[14rem]">
               Software engineer &amp; writer based in Vietnam. Building things on the web.
             </p>
           </div>
@@ -36,7 +36,7 @@ export function Footer() {
                 <Link
                   key={href}
                   href={href}
-                  className="text-xs text-[var(--text-muted)] hover:text-[var(--text)] transition-colors"
+                  className="text-sm text-[var(--text-muted)] hover:text-[var(--text)] transition-colors"
                 >
                   {label}
                 </Link>
@@ -61,7 +61,7 @@ export function Footer() {
                   href={href}
                   target={href.startsWith("http") ? "_blank" : undefined}
                   rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="flex items-center gap-2 text-xs text-[var(--text-muted)] hover:text-[var(--text)] transition-colors"
+                  className="flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-[var(--text)] transition-colors"
                 >
                   <Icon size={11} />
                   {label}
@@ -75,7 +75,7 @@ export function Footer() {
             <span className="font-mono text-[9px] tracking-widest uppercase text-[var(--text-subtle)] mb-4 block">
               Hire me
             </span>
-            <p className="text-xs text-[var(--text-subtle)] leading-relaxed mb-4">
+            <p className="text-sm text-[var(--text-subtle)] leading-relaxed mb-4">
               Available for consulting on Next.js, full-stack architecture &amp; technical writing.
             </p>
             <a

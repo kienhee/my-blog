@@ -19,7 +19,7 @@ export function PostCard({ post, variant = "default" }: PostCardProps) {
           <h3 className="text-sm font-medium text-[var(--text)] group-hover:text-[var(--text-muted)] transition-colors duration-150 leading-snug line-clamp-2">
             {post.title}
           </h3>
-          <div className="mt-1.5 flex items-center gap-3 text-xs text-[var(--text-subtle)]">
+          <div className="mt-1.5 flex items-center gap-3 text-sm text-[var(--text-subtle)]">
             <span>{formatDateShort(post.date)}</span>
             <span className="flex items-center gap-1">
               <Clock size={10} />
@@ -45,7 +45,7 @@ export function PostCard({ post, variant = "default" }: PostCardProps) {
         {post.tags.slice(0, 2).map((tag) => (
           <span
             key={tag}
-            className="text-xs font-medium px-2 py-0.5 rounded-md bg-[var(--bg-surface-2)] text-[var(--text-subtle)] border border-[var(--border-subtle)]"
+            className="text-sm font-medium px-2 py-0.5 rounded-md bg-[var(--bg-surface-2)] text-[var(--text-subtle)] border border-[var(--border-subtle)]"
           >
             {tag}
           </span>
@@ -64,7 +64,7 @@ export function PostCard({ post, variant = "default" }: PostCardProps) {
 
       {/* Meta */}
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-3 text-xs text-[var(--text-subtle)]">
+        <div className="flex items-center gap-3 text-sm text-[var(--text-subtle)]">
           <span>{formatDateShort(post.date)}</span>
           <span className="flex items-center gap-1">
             <Clock size={10} />

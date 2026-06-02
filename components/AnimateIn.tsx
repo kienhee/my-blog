@@ -21,6 +21,13 @@ export function AnimateIn({
     const el = ref.current;
     if (!el) return;
 
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      el.style.opacity = "1";
+      el.style.transform = "none";
+      return;
+    }
+
     const initialTransform = {
       up: "translateY(32px)",
       down: "translateY(-32px)",

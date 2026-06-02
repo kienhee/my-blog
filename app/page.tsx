@@ -1,3 +1,4 @@
+import { ViewTransition } from "react";
 import Link from "next/link";
 import { ArrowUpRight, ArrowDown } from "lucide-react";
 import { GitHubIcon, XIcon } from "@/components/icons";
@@ -20,7 +21,8 @@ export default function HomePage() {
   const featuredProjects = getFeaturedProjects();
 
   return (
-    <div className="pt-14" style={{ cursor: "none" }}>
+    <ViewTransition>
+      <div className="pt-14" style={{ cursor: "none" }}>
 
       {/* ═══════════════════════════════════════════════
           01 — HERO
@@ -101,11 +103,9 @@ export default function HomePage() {
               style={{ animation: "fade-up 0.9s cubic-bezier(0.4,0,0.2,1) 0.3s both" }}
             >
               <h1
-                className="font-display font-black leading-[0.9] tracking-tighter uppercase"
+                className="font-display font-black leading-[0.9] tracking-tighter uppercase hero-outline-text cursor-pointer"
                 style={{
                   fontSize: "clamp(4.5rem, 13.5vw, 15rem)",
-                  color: "transparent",
-                  WebkitTextStroke: "1px var(--text-subtle)",
                 }}
               >
                 Web.
@@ -127,7 +127,7 @@ export default function HomePage() {
               </span>
               Available for consulting &amp; collaborations
             </div>
-            <p className="text-xs text-[var(--text-subtle)] font-mono">
+            <p className="text-sm text-[var(--text-subtle)] font-mono">
               Based in Vietnam · Writing since 2024
             </p>
           </div>
@@ -170,7 +170,7 @@ export default function HomePage() {
         <MarqueeText
           items={MARQUEE_ITEMS}
           speed={35}
-          className="text-xs font-mono tracking-widest uppercase text-[var(--text-subtle)]"
+          className="text-sm font-mono tracking-widest uppercase text-[var(--text-subtle)]"
           separator="·"
         />
       </div>
@@ -205,7 +205,7 @@ export default function HomePage() {
                 className="group grid grid-cols-[3rem_1fr_auto] lg:grid-cols-[3rem_1fr_200px_auto] items-center gap-4 lg:gap-8 py-6 border-b border-[var(--border-subtle)] hover:border-[var(--border)] transition-all"
               >
                 {/* Number */}
-                <span className="font-mono text-xs text-[var(--text-subtle)] group-hover:text-[var(--text-muted)] transition-colors">
+                <span className="font-mono text-sm text-[var(--text-subtle)] group-hover:text-[var(--text-muted)] transition-colors">
                   {String(i + 1).padStart(2, "0")}
                 </span>
 
@@ -229,8 +229,8 @@ export default function HomePage() {
                       {tag}
                     </span>
                   ))}
-                  <span className="text-[var(--border)] text-xs">·</span>
-                  <span className="text-xs text-[var(--text-subtle)] font-mono whitespace-nowrap">
+                  <span className="text-[var(--border)] text-sm">·</span>
+                  <span className="text-sm text-[var(--text-subtle)] font-mono whitespace-nowrap">
                     {post.readingTime} min
                   </span>
                 </div>
@@ -364,5 +364,6 @@ export default function HomePage() {
         </div>
       </section>
     </div>
+    </ViewTransition>
   );
 }

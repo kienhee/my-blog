@@ -9,8 +9,11 @@ export interface Project {
   status: "live" | "wip" | "archived";
   year: string;
   featured?: boolean;
-  /** Path relative to /public, e.g. "/projects/kienhee-com.png" */
   image?: string;
+  services?: string[];
+  challenge?: string;
+  solution?: string;
+  features?: string[];
 }
 
 export const PROJECTS: Project[] = [
@@ -27,6 +30,10 @@ export const PROJECTS: Project[] = [
     year: "2026",
     featured: true,
     image: "/projects/kienhee-com.svg",
+    services: ["Design System", "Fullstack Development", "SEO Optimization"],
+    challenge: "Building a modern developer portfolio that avoids standard static layouts, loads in under 1 second, and displays visual wow-factor without relying on heavy animation frameworks.",
+    solution: "Leveraging Next.js App Router static optimization combined with a custom dual LERP cursor, background grid layouts, and native React 19 View Transitions to deliver speed and Awwwards-grade motion.",
+    features: ["High performance loading scores", "Glassmorphic overlay cards", "Custom noise grain overlays"]
   },
   {
     slug: "devkit-cli",
@@ -41,6 +48,10 @@ export const PROJECTS: Project[] = [
     year: "2025",
     featured: true,
     image: "/projects/devkit-cli.svg",
+    services: ["CLI Tooling", "Node.js", "Scaffolding Templates"],
+    challenge: "Scaffolding boilerplate repositories takes hours. Developers waste time copy-pasting packages for authentication, databases, payments, and styles.",
+    solution: "Created devkit-cli, a Node.js CLI tool that bundles opinionated packages, compiles dynamic schemas, and setups ready-to-run microservice structures in 30 seconds.",
+    features: ["Multi-database setups (Postgres, D1, SQLite)", "Interactive CLI prompts", "Automatic environment key generation"]
   },
   {
     slug: "readwise-to-notion",
@@ -54,6 +65,10 @@ export const PROJECTS: Project[] = [
     year: "2025",
     featured: true,
     image: "/projects/readwise-to-notion.svg",
+    services: ["Automation", "API Integrations", "Serverless Architecture"],
+    challenge: "Readwise acts as a central hub for reading highlights, but sync options are rigid. Notion databases require custom relations and constant polling to stay in sync.",
+    solution: "A Cloudflare Workers background cron script that fetches highlights, merges duplicates, parses HTML snippets into Notion block layouts, and updates in real-time.",
+    features: ["Incremental updates cron sync", "Notion rich-text paragraph conversions", "Highly-efficient serverless execution"]
   },
   {
     slug: "type-safe-env",
@@ -66,6 +81,10 @@ export const PROJECTS: Project[] = [
     status: "live",
     year: "2024",
     image: "/projects/type-safe-env.svg",
+    services: ["Library Dev", "Type safety", "Schema validation"],
+    challenge: "Configuring environment variables is error-prone. Errors are only detected in runtime crashes, resulting in debug friction.",
+    solution: "A tiny 1KB schema validator built on Zod that executes on application bootstrapping, throwing detailed, early errors if validation fails.",
+    features: ["Full TypeScript autocomplete support", "Detailed missing key lists on boot", "Zero production bundle bloat"]
   },
   {
     slug: "aicommit",
@@ -78,6 +97,10 @@ export const PROJECTS: Project[] = [
     status: "live",
     year: "2024",
     image: "/projects/aicommit.svg",
+    services: ["Git Hook", "AI Orchestration", "CLI UX"],
+    challenge: "Writing conventional git commits takes effort, leading developers to write generic messages like 'fix bug' or 'update code'.",
+    solution: "A Git hook CLI that extracts diff hunks, passes them to a localized or remote LLM, compiles context, and drafts accurate commits automatically.",
+    features: ["Context-aware git diff summary", "Conventional commit standard compliance", "Local LLM support (Ollama)"]
   },
   {
     slug: "logboard",
@@ -90,6 +113,10 @@ export const PROJECTS: Project[] = [
     status: "wip",
     year: "2026",
     image: "/projects/logboard.svg",
+    services: ["Analytics Engine", "Database design", "Client SDK"],
+    challenge: "Commercial analytics tools are expensive and compromise user privacy. Self-hosting often requires configuring heavy infrastructure.",
+    solution: "A privacy-first dashboard that runs on Cloudflare D1 SQL. Weighs under 2KB and provides zero-cookie tracking for full compliance.",
+    features: ["Interactive SVG line chart trends", "Zero cookie collection logic", "Under 1s query speeds"]
   },
 ];
 

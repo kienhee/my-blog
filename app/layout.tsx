@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { Archivo, Space_Grotesk } from "next/font/google";
+import { Archivo, Inter } from "next/font/google";
+import { cookies } from "next/headers";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CustomCursor } from "@/components/CustomCursor";
+import { BackgroundGrid } from "@/components/BackgroundGrid";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -13,10 +15,10 @@ const archivo = Archivo({
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-body",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -50,29 +52,25 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const cookieStore = await cookies();
+  const cookieTheme = cookieStore.get("theme")?.value;
+  const initialTheme = cookieTheme === "light" || cookieTheme === "dark" ? cookieTheme : "dark";
+
   return (
-    // "dark" hardcoded = default. ThemeProvider sẽ apply class đúng sau hydration.
-    // suppressHydrationWarning để React bỏ qua diff class dark/light giữa server/client.
     <html
       lang="en"
       suppressHydrationWarning
       data-scroll-behavior="smooth"
-      className={`${archivo.variable} ${spaceGrotesk.variable} dark`}
+      className={`${archivo.variable} ${inter.variable} ${initialTheme}`}
     >
-      <head>
-        {/* Blocking script: reads localStorage before first paint — eliminates FOUC */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.classList.remove('dark','light');document.documentElement.classList.add(t);}}catch(e){}})();`,
-          }}
-        />
-      </head>
+      <head />
       <body className="min-h-screen flex flex-col">
         <ThemeProvider>
           <CustomCursor />
+          <BackgroundGrid />
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />

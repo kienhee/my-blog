@@ -1,3 +1,4 @@
+import { ViewTransition } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Mail, ExternalLink, ArrowUpRight } from "lucide-react";
@@ -98,195 +99,264 @@ const INTERVIEWS = [
   },
 ];
 
+const STATS = [
+  { value: "6+", label: "Years building" },
+  { value: "12+", label: "Open source tools" },
+  { value: "VN", label: "Based in Vietnam" },
+];
+
 export default function AboutPage() {
   return (
-    <div className="pt-14">
-      <div className="max-w-5xl mx-auto px-6 pt-16 pb-24">
-        {/* ─── Header ─────────────────────────────────────── */}
-        <div className="max-w-2xl mb-20">
-          <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-subtle)] mb-4">
-            About
+    <ViewTransition>
+      <div className="pt-14">
+        {/* ─── Hero (centered case study) ───────────────────── */}
+        <header className="px-6 md:px-12 pt-20 pb-16 max-w-4xl mx-auto text-center border-b border-[var(--border)]">
+          <p className="font-mono text-sm tracking-[0.35em] uppercase text-[var(--text-subtle)] mb-8">
+            About — Case Study
           </p>
-          <h1 className="font-display font-bold text-4xl sm:text-5xl text-[var(--text)] tracking-tight mb-6">
-            I build software for the web.
+
+          <h1
+            className="font-display font-black tracking-tighter text-[var(--text)] leading-[0.92] mb-8"
+            style={{ fontSize: "clamp(2.75rem, 7vw, 6rem)" }}
+          >
+            I build software
+            <br />
+            for the web.
           </h1>
-          <div className="space-y-4 text-[var(--text-muted)] leading-relaxed">
-            <p>
-              I&apos;m Kienhee — a software engineer based in Vietnam. I&apos;ve spent the
-              past several years building full-stack web applications, with a particular
-              obsession for developer experience, performance, and systems that don&apos;t
-              collapse under their own weight.
-            </p>
-            <p>
-              I started this blog because I kept rediscovering the same lessons. Writing
-              forces me to think more precisely, and sharing publicly means other people
-              don&apos;t have to learn the hard way.
-            </p>
-            <p>
-              Outside of work, I contribute to open source, experiment with side projects,
-              and occasionally do contract work for early-stage startups that need someone
-              to help them ship fast without creating technical debt.
-            </p>
+
+          <p className="text-base sm:text-lg text-[var(--text-muted)] leading-relaxed max-w-2xl mx-auto mb-12">
+            Software engineer, writer, and builder. I care about clean code, fast
+            software, and developer experience that doesn&apos;t get in the way.
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-10 sm:gap-16">
+            {STATS.map(({ value, label }) => (
+              <div key={label} className="text-center">
+                <p className="font-display font-black text-3xl sm:text-4xl tracking-tight text-[var(--text)]">
+                  {value}
+                </p>
+                <p className="font-mono text-sm tracking-widest uppercase text-[var(--text-subtle)] mt-1">
+                  {label}
+                </p>
+              </div>
+            ))}
           </div>
-        </div>
+        </header>
 
-        <div className="grid lg:grid-cols-3 gap-12">
-          {/* ─── Left column ─────────────────────────────── */}
-          <div className="lg:col-span-2 space-y-16">
-            {/* Timeline */}
-            <div>
-              <h2 className="font-display font-semibold text-lg text-[var(--text)] tracking-tight mb-8">
-                Career
-              </h2>
-              <div className="relative">
-                <div
-                  className="absolute left-[7px] top-2 bottom-2 w-px bg-[var(--border)]"
-                  aria-hidden
-                />
-                <div className="space-y-8">
-                  {TIMELINE.map((item) => (
-                    <div key={item.year} className="flex gap-5">
-                      <div className="relative flex flex-col items-center shrink-0">
-                        <div className="w-3.5 h-3.5 rounded-full border-2 border-[var(--border)] bg-[var(--bg)] mt-0.5 z-10" />
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-3 mb-1">
-                          <h3 className="font-medium text-sm text-[var(--text)]">
-                            {item.title}
-                          </h3>
-                          <span className="text-xs text-[var(--text-subtle)] font-mono">
-                            {item.year}
-                          </span>
-                        </div>
-                        <p className="text-sm text-[var(--text-muted)] leading-relaxed">
-                          {item.description}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+        {/* ─── Intro + sidebar ──────────────────────────────── */}
+        <section className="max-w-6xl mx-auto px-6 md:px-12 py-16 lg:py-20">
+          <div className="grid lg:grid-cols-[minmax(0,1fr)_280px] gap-14 lg:gap-20">
+            <div className="max-w-2xl">
+              <p className="font-mono text-sm tracking-widest uppercase text-[var(--text-subtle)] mb-6">
+                01 — Introduction
+              </p>
+              <div className="space-y-5 text-[var(--text-muted)] leading-relaxed text-base">
+                <p>
+                  I&apos;m Kienhee — a software engineer based in Vietnam. I&apos;ve spent the
+                  past several years building full-stack web applications, with a particular
+                  obsession for developer experience, performance, and systems that don&apos;t
+                  collapse under their own weight.
+                </p>
+                <p>
+                  I started this blog because I kept rediscovering the same lessons. Writing
+                  forces me to think more precisely, and sharing publicly means other people
+                  don&apos;t have to learn the hard way.
+                </p>
+                <p>
+                  Outside of work, I contribute to open source, experiment with side projects,
+                  and occasionally do contract work for early-stage startups that need someone
+                  to help them ship fast without creating technical debt.
+                </p>
               </div>
+
+              <blockquote className="mt-12 border-l-2 border-[var(--text)] pl-6">
+                <p className="font-display text-xl sm:text-2xl tracking-tight leading-snug text-[var(--text)] italic">
+                  &ldquo;The best architecture is the one that ships.&rdquo;
+                </p>
+              </blockquote>
             </div>
 
-            {/* Skills */}
-            <div>
-              <h2 className="font-display font-semibold text-lg text-[var(--text)] tracking-tight mb-8">
-                Stack
-              </h2>
-              <div className="grid sm:grid-cols-2 gap-6">
-                {SKILLS.map(({ category, items }) => (
-                  <div key={category}>
-                    <h3 className="text-xs font-semibold uppercase tracking-widest text-[var(--text-subtle)] mb-3">
-                      {category}
-                    </h3>
-                    <div className="flex flex-wrap gap-1.5">
-                      {items.map((item) => (
-                        <span
-                          key={item}
-                          className="text-xs px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg-surface)] text-[var(--text-muted)]"
-                        >
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Interviews / Press */}
-            {INTERVIEWS.length > 0 && (
-              <div>
-                <h2 className="font-display font-semibold text-lg text-[var(--text)] tracking-tight mb-6">
-                  Features &amp; interviews
-                </h2>
-                <div className="space-y-3">
-                  {INTERVIEWS.map((item) => (
+            <aside className="space-y-6 lg:sticky lg:top-20 lg:self-start">
+              <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] p-5">
+                <p className="font-mono text-sm tracking-widest uppercase text-[var(--text-subtle)] mb-4">
+                  Elsewhere
+                </p>
+                <div className="space-y-4">
+                  {ELSEWHERE.map(({ href, label, handle, icon: Icon }) => (
                     <a
-                      key={item.href}
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex items-center justify-between p-4 rounded-lg border border-[var(--border)] bg-[var(--bg-surface)] hover:border-[var(--text-subtle)] transition-colors duration-150 cursor-pointer"
+                      key={href}
+                      href={href}
+                      target={href.startsWith("http") ? "_blank" : undefined}
+                      rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      className="group flex items-center gap-3 cursor-pointer"
                     >
-                      <div>
-                        <p className="text-sm text-[var(--text)] font-medium group-hover:text-[var(--text-muted)] transition-colors duration-150">
-                          {item.title}
+                      <span className="flex items-center justify-center w-9 h-9 rounded-lg border border-[var(--border)] text-[var(--text-subtle)] group-hover:text-[var(--text)] group-hover:border-[var(--text-muted)] transition-colors">
+                        <Icon size={15} />
+                      </span>
+                      <div className="min-w-0 text-left">
+                        <p className="text-sm text-[var(--text-subtle)]">{label}</p>
+                        <p className="text-sm font-medium text-[var(--text)] truncate group-hover:text-[var(--text-muted)] transition-colors">
+                          {handle}
                         </p>
-                        <p className="text-xs text-[var(--text-subtle)] mt-0.5">{item.source}</p>
                       </div>
-                      <ArrowUpRight
-                        size={14}
-                        className="text-[var(--text-subtle)] opacity-0 group-hover:opacity-100 transition-opacity duration-150 shrink-0 ml-3"
-                      />
                     </a>
                   ))}
                 </div>
               </div>
-            )}
-          </div>
 
-          {/* ─── Right column ─────────────────────────────── */}
-          <div className="space-y-10">
-            {/* Social */}
-            <div>
-              <h2 className="font-display font-semibold text-lg text-[var(--text)] tracking-tight mb-5">
-                Elsewhere
-              </h2>
-              <div className="space-y-3">
-                {ELSEWHERE.map(({ href, label, handle, icon: Icon }) => (
-                  <a
-                    key={href}
-                    href={href}
-                    target={href.startsWith("http") ? "_blank" : undefined}
-                    rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="group flex items-center gap-3 cursor-pointer"
-                  >
-                    <span className="flex items-center justify-center w-8 h-8 rounded-lg border border-[var(--border)] bg-[var(--bg-surface)] text-[var(--text-subtle)] group-hover:text-[var(--text)] group-hover:border-[var(--text-muted)] transition-colors duration-150">
-                      <Icon size={14} />
-                    </span>
-                    <div>
-                      <p className="text-xs text-[var(--text-subtle)]">{label}</p>
-                      <p className="text-sm text-[var(--text-muted)] group-hover:text-[var(--text)] transition-colors duration-150 font-medium">
-                        {handle}
-                      </p>
-                    </div>
-                  </a>
-                ))}
+              <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] p-5">
+                <h3 className="font-display font-bold text-sm text-[var(--text)] mb-2">
+                  Work with me
+                </h3>
+                <p className="text-sm text-[var(--text-muted)] leading-relaxed mb-4">
+                  Consulting on Next.js, full-stack architecture, and technical writing.
+                </p>
+                <a
+                  href="mailto:hi@kienhee.com"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--text)] hover:text-[var(--text-muted)] transition-colors cursor-pointer"
+                >
+                  <Mail size={14} />
+                  Get in touch
+                  <ExternalLink size={12} className="opacity-50" />
+                </a>
               </div>
-            </div>
 
-            {/* Newsletter */}
-            <div className="p-5 rounded-xl border border-[var(--border)] bg-[var(--bg-surface)]">
-              <h3 className="font-display font-semibold text-sm text-[var(--text)] mb-1.5">
-                Newsletter
-              </h3>
-              <p className="text-xs text-[var(--text-muted)] leading-relaxed mb-4">
-                New articles and project updates — once or twice a month.
-              </p>
-              <NewsletterForm />
-            </div>
+              <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] p-5">
+                <h3 className="font-display font-bold text-sm text-[var(--text)] mb-2">
+                  Newsletter
+                </h3>
+                <p className="text-sm text-[var(--text-muted)] leading-relaxed mb-4">
+                  New articles and project updates — once or twice a month.
+                </p>
+                <NewsletterForm />
+              </div>
+            </aside>
+          </div>
+        </section>
 
-            {/* Hire */}
-            <div className="p-5 rounded-xl border border-[var(--border)] bg-[var(--bg-surface)]">
-              <h3 className="font-display font-semibold text-sm text-[var(--text)] mb-1.5">
-                Work with me
-              </h3>
-              <p className="text-xs text-[var(--text-muted)] leading-relaxed mb-4">
-                Available for consulting on Next.js, full-stack architecture, and technical writing.
-              </p>
-              <a
-                href="mailto:hi@kienhee.com"
-                className="flex items-center gap-1.5 text-xs font-medium text-[var(--text)] hover:text-[var(--text-muted)] transition-colors duration-150 cursor-pointer"
-              >
-                <Mail size={12} />
-                Get in touch
-                <ExternalLink size={10} className="opacity-50" />
-              </a>
+        {/* ─── Career ───────────────────────────────────────── */}
+        <section className="max-w-3xl mx-auto px-6 md:px-12 py-16 border-t border-[var(--border)]">
+          <p className="font-mono text-sm tracking-widest uppercase text-[var(--text-subtle)] mb-3 text-center">
+            02 — Career
+          </p>
+          <h2
+            className="font-display font-black tracking-tighter text-[var(--text)] text-center mb-14"
+            style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
+          >
+            Timeline
+          </h2>
+
+          <div className="relative">
+            <div
+              className="absolute left-[7px] top-2 bottom-2 w-px bg-[var(--border)]"
+              aria-hidden
+            />
+            <div className="space-y-10">
+              {TIMELINE.map((item) => (
+                <div key={item.year} className="flex gap-6">
+                  <div className="shrink-0 pt-1">
+                    <div className="w-3.5 h-3.5 rounded-full border-2 border-[var(--text-muted)] bg-[var(--bg)] z-10 relative" />
+                  </div>
+                  <div>
+                    <span className="font-mono text-sm text-[var(--text-subtle)]">
+                      {item.year}
+                    </span>
+                    <h3 className="font-display font-bold text-lg text-[var(--text)] mt-1 mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-[var(--text-muted)] leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
+        </section>
+
+        {/* ─── Stack ────────────────────────────────────────── */}
+        <section className="max-w-5xl mx-auto px-6 md:px-12 py-16 border-t border-[var(--border)]">
+          <p className="font-mono text-sm tracking-widest uppercase text-[var(--text-subtle)] mb-3 text-center">
+            03 — Stack
+          </p>
+          <h2
+            className="font-display font-black tracking-tighter text-[var(--text)] text-center mb-14"
+            style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
+          >
+            Tools &amp; tech
+          </h2>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {SKILLS.map(({ category, items }) => (
+              <div
+                key={category}
+                className="rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] p-5"
+              >
+                <h3 className="font-mono text-sm font-semibold tracking-widest uppercase text-[var(--text-subtle)] mb-4">
+                  {category}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {items.map((item) => (
+                    <span
+                      key={item}
+                      className="text-sm px-2.5 py-1 rounded-md border border-[var(--border)] text-[var(--text-muted)]"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ─── Features ─────────────────────────────────────── */}
+        {INTERVIEWS.length > 0 && (
+          <section className="max-w-3xl mx-auto px-6 md:px-12 py-16 pb-24 border-t border-[var(--border)]">
+            <p className="font-mono text-sm tracking-widest uppercase text-[var(--text-subtle)] mb-3 text-center">
+              04 — Press
+            </p>
+            <h2
+              className="font-display font-black tracking-tighter text-[var(--text)] text-center mb-10"
+              style={{ fontSize: "clamp(1.75rem, 4vw, 2.5rem)" }}
+            >
+              Features &amp; interviews
+            </h2>
+            <div className="space-y-3">
+              {INTERVIEWS.map((item) => (
+                <a
+                  key={item.title}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-between p-5 rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] hover:border-[var(--text-muted)] transition-colors cursor-pointer"
+                >
+                  <div>
+                    <p className="text-sm font-medium text-[var(--text)] group-hover:text-[var(--text-muted)] transition-colors">
+                      {item.title}
+                    </p>
+                    <p className="text-sm text-[var(--text-subtle)] mt-0.5">{item.source}</p>
+                  </div>
+                  <ArrowUpRight
+                    size={16}
+                    className="text-[var(--text-subtle)] opacity-0 group-hover:opacity-100 transition-all shrink-0 ml-3"
+                  />
+                </a>
+              ))}
+            </div>
+
+            <p className="text-center mt-12">
+              <Link
+                href="/blog"
+                className="inline-flex items-center gap-2 font-mono text-sm tracking-widest uppercase text-[var(--text-subtle)] hover:text-[var(--text)] transition-colors"
+              >
+                Read the blog
+                <ArrowUpRight size={14} />
+              </Link>
+            </p>
+          </section>
+        )}
       </div>
-    </div>
+    </ViewTransition>
   );
 }

@@ -1,3 +1,4 @@
+import { ViewTransition } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -42,21 +43,27 @@ export default async function PostPage({ params }: Props) {
   const toc = extractToc(post.content);
 
   return (
-    <div className="pt-14">
+    <ViewTransition
+      enter={{ "nav-forward": "slide-from-right", default: "none" }}
+      exit={{ "nav-back": "slide-to-right", default: "none" }}
+      default="none"
+    >
+      <div className="pt-14">
 
-      {/* ─── Header ─────────────────────────────────────────── */}
-      <div className="px-6 md:px-12 pt-16 pb-10 max-w-4xl mx-auto text-center">
+        {/* ─── Header ─────────────────────────────────────────── */}
+        <div className="px-6 md:px-12 pt-16 pb-10 max-w-4xl mx-auto text-center">
 
-        {/* Back link — left aligned */}
-        <div className="flex justify-start mb-10">
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 text-xs font-mono tracking-widest uppercase text-[var(--text-subtle)] hover:text-[var(--text)] transition-colors"
-          >
-            <ArrowLeft size={12} />
-            All posts
-          </Link>
-        </div>
+          {/* Back link — left aligned */}
+          <div className="flex justify-start mb-10">
+            <Link
+              href="/blog"
+              transitionTypes={["nav-back"]}
+              className="inline-flex items-center gap-2 text-sm font-mono tracking-widest uppercase text-[var(--text-subtle)] hover:text-[var(--text)] transition-colors"
+            >
+              <ArrowLeft size={12} />
+              All posts
+            </Link>
+          </div>
 
         {/* Tags */}
         <div className="flex flex-wrap justify-center gap-2 mb-6">
@@ -84,7 +91,7 @@ export default async function PostPage({ params }: Props) {
         </p>
 
         {/* Meta row */}
-        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-[var(--text-subtle)] font-mono mb-8">
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-[var(--text-subtle)] font-mono mb-8">
           <span className="flex items-center gap-1.5">
             <Calendar size={11} />
             {formatDate(post.date)}
@@ -133,7 +140,7 @@ export default async function PostPage({ params }: Props) {
 
             {/* Bottom actions */}
             <div className="flex items-center justify-between flex-wrap gap-4 mb-12">
-              <span className="font-mono text-xs text-[var(--text-subtle)] tracking-widest uppercase">
+              <span className="font-mono text-sm text-[var(--text-subtle)] tracking-widest uppercase">
                 Was this helpful?
               </span>
               <PostActions slug={post.slug} title={post.title} />
@@ -146,7 +153,7 @@ export default async function PostPage({ params }: Props) {
               </div>
               <div>
                 <p className="font-display font-bold text-sm text-[var(--text)] mb-1">Kienhee</p>
-                <p className="text-xs text-[var(--text-muted)] leading-relaxed mb-3">
+                <p className="text-sm text-[var(--text-muted)] leading-relaxed mb-3">
                   Software engineer writing about the web, developer tools, and building in public.
                 </p>
                 <div className="flex items-center gap-4">
@@ -193,5 +200,6 @@ export default async function PostPage({ params }: Props) {
         </div>
       </div>
     </div>
+    </ViewTransition>
   );
 }

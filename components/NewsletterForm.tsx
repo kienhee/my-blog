@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ArrowRight, Check, Loader } from "lucide-react";
+import { Magnetic } from "@/components/Magnetic";
 
 export function NewsletterForm() {
   const [email, setEmail] = useState("");
@@ -42,27 +43,34 @@ export function NewsletterForm() {
       <div className="flex gap-2">
         <input
           type="email"
+          name="email"
+          autoComplete="email"
+          spellCheck={false}
+          aria-label="Email address"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="your@email.com"
+          placeholder="email@example.com…"
           required
           disabled={state === "loading"}
-          className="flex-1 min-w-0 px-4 py-2.5 rounded-lg text-sm bg-[var(--bg-surface)] border border-[var(--border)] text-[var(--text)] placeholder:text-[var(--text-subtle)] focus:outline-none focus:border-[var(--text-muted)] transition-colors duration-150 disabled:opacity-50"
+          className="flex-1 min-w-0 px-4 py-2.5 rounded-lg text-sm bg-[var(--bg-surface)] border border-[var(--border)] text-[var(--text)] placeholder:text-[var(--text-subtle)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--text)] transition-all duration-150 disabled:opacity-50"
         />
-        <button
-          type="submit"
-          disabled={state === "loading" || !email}
-          className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium bg-[var(--text)] text-[var(--bg)] hover:opacity-90 disabled:opacity-40 transition-opacity duration-150 cursor-pointer shrink-0"
-        >
-          {state === "loading" ? (
-            <Loader size={14} className="animate-spin" />
-          ) : (
-            <ArrowRight size={14} />
-          )}
-          <span className="hidden sm:inline">Subscribe</span>
-        </button>
+        <Magnetic>
+          <button
+            type="submit"
+            aria-label="Subscribe to newsletter"
+            disabled={state === "loading" || !email}
+            className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium bg-[var(--text)] text-[var(--bg)] hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--text)] focus-visible:ring-offset-2 transition-all duration-150 disabled:opacity-40 cursor-pointer shrink-0"
+          >
+            {state === "loading" ? (
+              <Loader size={14} className="animate-spin" />
+            ) : (
+              <ArrowRight size={14} />
+            )}
+            <span className="hidden sm:inline">Subscribe</span>
+          </button>
+        </Magnetic>
       </div>
-      {error && <p className="text-xs text-red-400">{error}</p>}
+      {error && <p className="text-sm text-red-400">{error}</p>}
     </form>
   );
 }

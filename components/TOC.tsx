@@ -35,7 +35,7 @@ export function TOC({ items }: TOCProps) {
 
   return (
     <nav aria-label="Table of contents">
-      <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-subtle)] mb-4">
+      <p className="text-sm font-semibold uppercase tracking-widest text-[var(--text-subtle)] mb-4">
         On this page
       </p>
       <ul className="space-y-1.5">
@@ -43,7 +43,7 @@ export function TOC({ items }: TOCProps) {
           <li key={item.id} style={{ paddingLeft: item.level === 3 ? "0.75rem" : "0" }}>
             <a
               href={`#${item.id}`}
-              className={`block text-xs leading-relaxed transition-colors duration-150 cursor-pointer ${
+              className={`block text-sm leading-relaxed transition-colors duration-150 cursor-pointer ${
                 activeId === item.id
                   ? "text-[var(--text)] font-medium"
                   : "text-[var(--text-subtle)] hover:text-[var(--text-muted)]"

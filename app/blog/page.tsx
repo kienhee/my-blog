@@ -1,3 +1,4 @@
+import { ViewTransition } from "react";
 import type { Metadata } from "next";
 import { BlogClient } from "@/components/BlogClient";
 import { POSTS, getAllTags } from "@/lib/posts";
@@ -12,7 +13,12 @@ export default function BlogPage() {
   const tags = getAllTags();
 
   return (
-    <div className="pt-14">
+    <ViewTransition
+      enter={{ "nav-back": "slide-from-left", default: "none" }}
+      exit={{ "nav-forward": "slide-to-left", default: "none" }}
+      default="none"
+    >
+      <div className="pt-14">
       {/* ─── Header ─────────────────────────────────────── */}
       <div
         className="px-6 md:px-12 pt-16 pb-12 border-b border-[var(--border)]"
@@ -41,5 +47,6 @@ export default function BlogPage() {
         <BlogClient posts={POSTS} tags={tags} />
       </div>
     </div>
+    </ViewTransition>
   );
 }
