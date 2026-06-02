@@ -3,10 +3,7 @@ import { Archivo, Inter } from "next/font/google";
 import { cookies } from "next/headers";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { CustomCursor } from "@/components/CustomCursor";
-import { BackgroundGrid } from "@/components/BackgroundGrid";
+import { AppChrome } from "@/components/AppChrome";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -69,11 +66,7 @@ export default async function RootLayout({
       <head />
       <body className="min-h-screen flex flex-col">
         <ThemeProvider>
-          <CustomCursor />
-          <BackgroundGrid />
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
+          <AppChrome>{children}</AppChrome>
         </ThemeProvider>
       </body>
     </html>
